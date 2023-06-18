@@ -15,7 +15,7 @@ echo '<!DOCTYPE html>
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Ample Admin Lite Template by WrapPixel</title>
+    <title>New Samadhi LMS</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
@@ -81,68 +81,50 @@ echo '<!DOCTYPE html>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Basic Table</h3>
-                            <p class="text-muted">Add class <code>.table</code></p>
-                            <div class="table-responsive">
-                                <table class="table text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th class="border-top-0">#</th>
-                                            <th class="border-top-0">First Name</th>
-                                            <th class="border-top-0">Last Name</th>
-                                            <th class="border-top-0">Username</th>
-                                            <th class="border-top-0">Role</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Deshmukh</td>
-                                            <td>Prohaska</td>
-                                            <td>@Genelia</td>
-                                            <td>admin</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Deshmukh</td>
-                                            <td>Gaylord</td>
-                                            <td>@Ritesh</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sanghani</td>
-                                            <td>Gusikowski</td>
-                                            <td>@Govinda</td>
-                                            <td>developer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Roshan</td>
-                                            <td>Rogahn</td>
-                                            <td>@Hritik</td>
-                                            <td>supporter</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Joshi</td>
-                                            <td>Hickle</td>
-                                            <td>@Maruti</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nigam</td>
-                                            <td>Eichmann</td>
-                                            <td>@Sonu</td>
-                                            <td>supporter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <h3 class="box-title">My Classes</h3>
+                            <p class="text-muted"> you are already join Classes..</p>
+                            
                         </div>
                     </div>
-                </div>
+                   
+                    <div class="col-md-4 col-sm-12 mt-3">
+                        <div class="card" style="width: 18rem;">
+
+                            <img class="card-img-top" src="../../assets/img/rasika.jpg" alt="Card image cap">
+
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                       </div>
+                       <div class="col-md-4 col-sm-12 mt-3">
+                        <div class="card" style="width: 18rem;">
+
+                            <img class="card-img-top" src="../../assets/img/rasika.jpg" alt="Card image cap">
+
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                       </div>
+                       <div class="col-md-4 col-sm-12 mt-3">
+                        <div class="card" style="width: 18rem;">
+
+                            <img class="card-img-top" src="../../assets/img/rasika.jpg" alt="Card image cap">
+
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                       </div>
+                </div></div>
+                
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
