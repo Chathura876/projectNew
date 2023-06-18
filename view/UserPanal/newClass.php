@@ -63,8 +63,7 @@ $sideBar->getUserSideBar();
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
-                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                to Pro</a>
+                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
                         </div>
                     </div>
                 </div>
@@ -85,47 +84,14 @@ $sideBar->getUserSideBar();
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Classes you can relate to</h4>
-                                <h6 class="card-subtitle">Come join us...</h6>
-                                <section>
-                                    <div class="row">
-                                       <div class="col-md-4 col-sm-12 mt-3">
-                                        <div class="card" style="width: 18rem;">
+                                <h6 class="card-subtitle mb-5">Come join us...</h6>
+                                <section>';
+                                    
 
-                                            <img class="card-img-top" src="../../assets/img/rasika.jpg" alt="Card image cap">
+                                     $card=new userPanel();
+                                     $card->GetNewClass();
 
-                                            <div class="card-body">
-                                              <h5 class="card-title">Card title</h5>
-                                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
-                                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                          </div>
-                                       </div>
-
-                                       <div class="col-md-4 col-sm-12 mt-3">
-                                        <div class="card" style="width: 18rem;">
-
-                                            <img class="card-img-top" src="../../assets/img/rasika.jpg" alt="Card image cap">
-                                            
-                                            <div class="card-body">
-                                              <h5 class="card-title">Card title</h5>
-                                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
-                                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                          </div>
-                                       </div>
-
-                                       <div class="col-md-4 col-sm-12 mt-3">
-                                        <div class="card" style="width: 18rem;">
-
-                                            <img class="card-img-top" src="../../assets/img/rasika.jpg" alt="Card image cap">
-                                            
-                                            <div class="card-body">
-                                              <h5 class="card-title">Card title</h5>
-                                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
-                                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                          </div>
-                                       </div>
+                                 echo '    
                                     </div>
                                
                                 </section>

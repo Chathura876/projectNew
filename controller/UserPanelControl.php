@@ -285,6 +285,32 @@ class userPanel
             <!-- ============================================================== -->
             ';
     }
+
+
+   function GetNewClass()
+   {
+    include '../../php/connect.php';
+    $id=$_GET['stdID'];
+    $sql="select stdTB.grade,clTB.* from student stdTB,class clTB where stdTB.stdID=$id and clTB.grade=stdTB.grade";
+    $result=mysqli_query($con,$sql);
+    while($row=mysqli_fetch_assoc($result))
+    {
+        $classTitel=$row['classTitel'];
+        $className=$row['className'];
+        $image=$row['image'];
+        $des=$row['description'];
+
+        echo '<div class="card mt-3" style="width: 18rem;">
+        <img class="card-img-top" src="../../'.$image.'" alt="Card image cap" style="width: 300px; height: 300px;">
+        <div class="card-body">
+          <h3 class="card-title">'.$className.'</h3>
+          <p class="card-text">'.$des.'</p>
+          <a href="#" class="btn btn-dark">Join Now</a>
+        </div>
+      </div>';
+    }
+   }
+    
 }
 
 
