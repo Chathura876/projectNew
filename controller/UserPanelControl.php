@@ -178,11 +178,11 @@ function GetNewClass()
 {
     include '../../php/connect.php';
     $id = $_GET['stdID'];
-    $sql = "SELECT stdTB.grade, clTB.classID, clTB.classTitel, clTB.className, clTB.image, clTB.description
-            FROM student stdTB, class clTB, studentclass SCtb
-            WHERE stdTB.stdID = $id
-            AND clTB.grade = stdTB.grade
-            AND clTB.classID != SCtb.ClassID";
+    $sql = "SELECT stdTB.grade, clTB.*
+        FROM student stdTB, class clTB
+        WHERE stdTB.stdID = $id
+        AND clTB.grade = stdTB.grade";
+
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
         $classTitel = $row['classTitel'];
@@ -191,14 +191,15 @@ function GetNewClass()
         $des = $row['description'];
         $classID = $row['classID'];
 
-        echo '<div class="card mt-3" style="width: 18rem;">
+        echo '<div class="col-md-4">
+        <div class="card mt-3" style="width: 18rem;">
         <img class="card-img-top" src="../../' . $image . '" alt="Card image cap" style="width: 300px; height: 300px;">
         <div class="card-body">
           <h3 class="card-title">' . $className . '</h3>
           <p class="card-text">' . $des . '</p>
            <a href="../../view/UserPanal/myClasses.php?stdID=' . $id . '&classID=' . $classID . '" class="btn btn-dark" onclick="message()">Join Now</a>
         </div>
-      </div>
+      </div></div>
       <script>
         function message()
         {
@@ -220,8 +221,16 @@ function SaveMyClass()
   $stdID=$_GET['stdID'];
   $classID=$_GET['classID'];
 
-   $sql="INSERT INTO `studentclass` (`id`, `stdID`, `ClassID`, `date`, `timeStamp`) VALUES ('', $stdID, $classID, '2023-06-06', current_timestamp());";
+   $sql="INSERT INTO `studentclass` ( `stdID`, `ClassID`, `date`, `timeStamp`) VALUES ($stdID, $classID, '2023-06-06', current_timestamp());";
    $result=mysqli_query($con,$sql);
+   if(!$result)
+   {
+    echo '
+    <script>
+        alert(\'you join before\');
+    </script>
+    ';
+   }
 }
  //================================End================================================== 
  //  ======================================================================================
@@ -230,10 +239,10 @@ function SaveMyClass()
 
 function getMyClass()
 {
- include '../../php/connect.php';
-//  $stdID=$_GET['stdID'];
+ include '../../php/connect.php'; 
+ $stdID=$_GET['stdID'];
  $classID=$_GET['classID'];
- $sql="select * from class where classID = $classID";
+ $sql="select stdTB *,classTB.* from studentclass stdTB,class classTB where stdTB.stdID='$stdID' ";
  $result=mysqli_query($con,$sql);
  while($row=mysqli_fetch_assoc($result))
  {

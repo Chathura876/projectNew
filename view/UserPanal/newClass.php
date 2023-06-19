@@ -86,21 +86,21 @@ echo '<!DOCTYPE html>
                             <div class="card-body">
                                 <h4 class="card-title">Classes you can relate to</h4>
                                 <h6 class="card-subtitle mb-5">Come join us...</h6>
-                                <section>';
+                                <section>    </section>
                                     
 
-                                     $card=new userPanel();
-                                     $card->GetNewClass();
 
-                                 echo '    
-                                    </div>
+                                 
+                                    
                                
-                                </section>
+                            
                             </div>
-                        </div>
+                        </div></div>';
                        
+                        $card=new userPanel();
+                        $card->GetNewClass();
                        
-                    </div>
+                        echo '    
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
