@@ -118,7 +118,7 @@ class userPanel
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./myClasses.php?stdID='.$id.'"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./myClasses_.php?stdID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">My Classes</span>
@@ -179,9 +179,13 @@ function GetNewClass()
     include '../../php/connect.php';
     $id = $_GET['stdID'];
     $sql = "SELECT stdTB.grade, clTB.*
-        FROM student stdTB, class clTB
-        WHERE stdTB.stdID = $id
-        AND clTB.grade = stdTB.grade";
+    FROM student stdTB
+    INNER JOIN class clTB ON clTB.grade = stdTB.grade
+    LEFT JOIN studentclass sc ON sc.ClassID = clTB.classID
+    WHERE stdTB.stdID = $id
+    AND sc.ClassID IS NULL";
+
+
 
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -191,13 +195,15 @@ function GetNewClass()
         $des = $row['description'];
         $classID = $row['classID'];
 
-        echo '<div class="col-md-4">
+        echo '
+        
+        <div class="col-md-4">
         <div class="card mt-3" style="width: 18rem;">
         <img class="card-img-top" src="../../' . $image . '" alt="Card image cap" style="width: 300px; height: 300px;">
         <div class="card-body">
           <h3 class="card-title">' . $className . '</h3>
           <p class="card-text">' . $des . '</p>
-           <a href="../../view/UserPanal/myClasses.php?stdID=' . $id . '&classID=' . $classID . '" class="btn btn-dark" onclick="message()">Join Now</a>
+           <a href="../../view/UserPanal/myClasses.php?stdID='. $id .'& classID='.$classID.'" class="btn btn-dark" onclick="message()">Join Now</a>
         </div>
       </div></div>
       <script>
@@ -206,6 +212,7 @@ function GetNewClass()
             alert(\'Join Successfully..\');
         }
       </script>';
+      
     }
 }
 
@@ -219,9 +226,9 @@ function SaveMyClass()
 {
   include '../../php/connect.php';
   $stdID=$_GET['stdID'];
-  $classID=$_GET['classID'];
+   $classID=$_GET['classID'];
 
-   $sql="INSERT INTO `studentclass` ( `stdID`, `ClassID`, `date`, `timeStamp`) VALUES ($stdID, $classID, '2023-06-06', current_timestamp());";
+   $sql="INSERT INTO `studentclass` ( `id`,`stdID`, `ClassID`, `date`, `timeStamp`) VALUES ('',$stdID, $classID, '2023-06-06', current_timestamp());";
    $result=mysqli_query($con,$sql);
    if(!$result)
    {
@@ -241,8 +248,12 @@ function getMyClass()
 {
  include '../../php/connect.php'; 
  $stdID=$_GET['stdID'];
- $classID=$_GET['classID'];
- $sql="select stdTB *,classTB.* from studentclass stdTB,class classTB where stdTB.stdID='$stdID' ";
+ 
+ $sql = "SELECT stdTB.*, classTB.*
+ FROM studentclass stdTB
+ JOIN class classTB ON classTB.classID = stdTB.ClassID
+ WHERE stdTB.stdID = $stdID";
+
  $result=mysqli_query($con,$sql);
  while($row=mysqli_fetch_assoc($result))
  {
