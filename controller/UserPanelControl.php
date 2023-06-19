@@ -2,120 +2,11 @@
 
 class userPanel
 {
-    function getDashboard()
-    {
-        $option = "none";
-        $stdID = $_GET['stdID'];
-        $option = $_GET['option'];
+   
 
-        if ($option == "Dashboard") {
-            echo '
-                <div class="row mt-5 ml-2">
-                    <div class="col-md-4 col-sm-12">
-                        
-                        <section class="fist" style="margin-top: 150px;">
-                            
-                            <center>
-                            <h2 class="ml-5 mt-2">Our Classes</h2>
-            
-                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                        <div class="card m-3" style="width: 18rem;">
-                                            <img class="card-img-top" src="../../assets/img/card.jpg" alt="Card image cap" style="width: 300px; height: 300px;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card\'s
-                                                    content.</p>
-                                                <a href="#" class="btn btn-primary">Join Now</a>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="carousel-item">
-                                        <div class="card m-3" style="width: 18rem;">
-                                            <img class="card-img-top" src="../../assets/img/carosol (4).jpg" alt="Card image cap" style="width: 300px; height: 300px;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s
-                                                    content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="card m-3" style="width: 18rem;">
-                                        <img class="card-img-top" src="../../assets/img/carosol (8).jpg" alt="Card image cap" style="width: 300px; height: 300px;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s
-                                                content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </center>
-                        </section>
-                    </div>
-                    
-                    <div class="col-md-4 col-sm-12">
-                    <center><h1>New Samadhi LMS</h1></center> 
-                    <center><img src="../../assets/img/s.png" alt="logo" style="width: 150px;" class="m-5"></center>
-                        <div class="row">
-                            <div class="col">
-                            <center><button class="btn-lg btn-primary" style="border-radius: 8%; width: 300px;">Join New Classes </button></center> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cc col-md-4 col-sm-12" style="margin-top: 150px; margin-bottom: 600px;">
-                    <div class="calender m-5">
-                        <div class="calender-header">
-                            <span class="month-picker" id="month-picker">May</span>
-                            <div class="year-picker" id="year-picker">
-                                <span class="year-change" id="year-pre">
-                                    <pre><</pre>
-                                </span>
-                                <span id="year">2023</span>
-                                <span class="year-change" id="next-year">
-                                    <pre>></pre>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="calender-body">
-                            <div class="calender-week-days">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                            </div>
-                            <div class="calender-day">
-
-                            </div>
-                        </div>
-                        <div class="calender-footer">
-
-                        </div>
-                        <div class="date-time-formate" style="height: max-content; width: max-content; position: relative; top: 140px; justify-content: center; font-family: \'Gill Sans\', \'Gill Sans MT\', Calibri, \'Trebuchet MS\', sans-serif;">
-                            <div class="date-text-formate pr-2" style="font-size: 1.4rem; padding-right: 55%; border-right: 3px #9796f0 solid; position: absolute; left: -1rem;">TODAY</div>
-                            <div class="date-time-value">
-                                <div class="time-formate">2:25:41</div>
-                                <div class="date-formate">2023:june:11</div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            
-            ';
-
-        }
-    }
-
-
+    // ===========================================================================
+                    //    This function use get a navbar and side menu
+    //    ===========================================================================
     function getUserSideBar()
     {
         $id = $_GET['stdID'];
@@ -273,45 +164,103 @@ class userPanel
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+    
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+          
             ';
     }
+// ================================End===================================================
 
-
-   function GetNewClass()
-   {
+// =====================================================================================
+//                   This function use to get new class for user userPanel
+// ====================================================================================
+function GetNewClass()
+{
     include '../../php/connect.php';
-    $id=$_GET['stdID'];
-    $sql="select stdTB.grade,clTB.* from student stdTB,class clTB where stdTB.stdID=$id and clTB.grade=stdTB.grade";
-    $result=mysqli_query($con,$sql);
-    while($row=mysqli_fetch_assoc($result))
-    {
-        $classTitel=$row['classTitel'];
-        $className=$row['className'];
-        $image=$row['image'];
-        $des=$row['description'];
+    $id = $_GET['stdID'];
+    $sql = "SELECT stdTB.grade, clTB.classID, clTB.classTitel, clTB.className, clTB.image, clTB.description
+            FROM student stdTB, class clTB, studentclass SCtb
+            WHERE stdTB.stdID = $id
+            AND clTB.grade = stdTB.grade
+            AND clTB.classID != SCtb.ClassID";
+    $result = mysqli_query($con, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $classTitel = $row['classTitel'];
+        $className = $row['className'];
+        $image = $row['image'];
+        $des = $row['description'];
+        $classID = $row['classID'];
 
         echo '<div class="card mt-3" style="width: 18rem;">
-        <img class="card-img-top" src="../../'.$image.'" alt="Card image cap" style="width: 300px; height: 300px;">
+        <img class="card-img-top" src="../../' . $image . '" alt="Card image cap" style="width: 300px; height: 300px;">
         <div class="card-body">
-          <h3 class="card-title">'.$className.'</h3>
-          <p class="card-text">'.$des.'</p>
-          <a href="#" class="btn btn-dark">Join Now</a>
+          <h3 class="card-title">' . $className . '</h3>
+          <p class="card-text">' . $des . '</p>
+           <a href="../../view/UserPanal/myClasses.php?stdID=' . $id . '&classID=' . $classID . '" class="btn btn-dark" onclick="message()">Join Now</a>
         </div>
-      </div>';
+      </div>
+      <script>
+        function message()
+        {
+            alert(\'Join Successfully..\');
+        }
+      </script>';
     }
-   }
-    
+}
+
+//    ===========================End=====================================
+
+// ===================================================================================
+//             This function is call to get join student to classes
+// ===================================================================================
+
+function SaveMyClass()
+{
+  include '../../php/connect.php';
+  $stdID=$_GET['stdID'];
+  $classID=$_GET['classID'];
+
+   $sql="INSERT INTO `studentclass` (`id`, `stdID`, `ClassID`, `date`, `timeStamp`) VALUES ('', $stdID, $classID, '2023-06-06', current_timestamp());";
+   $result=mysqli_query($con,$sql);
+}
+ //================================End================================================== 
+ //  ======================================================================================
+//                   This function is called get my Classes
+// =======================================================================================
+
+function getMyClass()
+{
+ include '../../php/connect.php';
+//  $stdID=$_GET['stdID'];
+ $classID=$_GET['classID'];
+ $sql="select * from class where classID = $classID";
+ $result=mysqli_query($con,$sql);
+ while($row=mysqli_fetch_assoc($result))
+ {
+    $className=$row['className'];
+    $image=$row['image'];
+    $des=$row['description'];
+
+    echo ' <div class="col-md-4 col-sm-12 mt-3">
+    <div class="card" style="width: 18rem;">
+
+        <img class="card-img-top" src="../../'.$image.'" alt="Card image cap">
+
+        <div class="card-body">
+          <h5 class="card-title">'.$className.'</h5>
+          <p class="card-text">'.$des.'</p>
+          <a href="#" class="btn btn-success">Launch Now </a>
+        </div>
+      </div>
+   </div>';
+ }
+}
+
+// =================================End==================================================
 }
 
 
+
+
 ?>
+

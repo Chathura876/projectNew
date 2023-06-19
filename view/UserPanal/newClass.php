@@ -50,8 +50,9 @@ echo '<!DOCTYPE html>
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->';
-      $sideBar = new userPanel();
-$sideBar->getUserSideBar();
+       $sideBar = new userPanel();
+       $sideBar->getUserSideBar();
+       
            echo' <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
