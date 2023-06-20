@@ -128,14 +128,14 @@ $sideBar->getUserSideBar();
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title">Products Yearly Sales</h3>
+                            <h3 class="box-title">Your Exam Mark</h3>
                             <div class="d-md-flex">
                                 <ul class="list-inline d-flex ms-auto">
                                     <li class="ps-3">
-                                        <h5><i class="fa fa-circle me-1 text-info"></i>Mac</h5>
+                                        <h5><i class="fa fa-circle me-1 text-info"></i>Mathematic</h5>
                                     </li>
                                     <li class="ps-3">
-                                        <h5><i class="fa fa-circle me-1 text-inverse"></i>Windows</h5>
+                                        <h5><i class="fa fa-circle me-1 text-inverse"></i>Sinhala</h5>
                                     </li>
                                 </ul>
                             </div>
@@ -157,11 +157,11 @@ $sideBar->getUserSideBar();
                                 <h3 class="box-title mb-0">Recent sales</h3>
                                 <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
                                     <select class="form-select shadow-none row border-top">
-                                        <option>March 2021</option>
-                                        <option>April 2021</option>
-                                        <option>May 2021</option>
-                                        <option>June 2021</option>
-                                        <option>July 2021</option>
+                                        <option>March 2023</option>
+                                        <option>April 2023</option>
+                                        <option>May 2023</option>
+                                        <option>June 2023</option>
+                                        <option>July 2023</option>
                                     </select>
                                 </div>
                             </div>

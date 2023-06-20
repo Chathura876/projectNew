@@ -67,7 +67,7 @@
 
 <body class="text-center">
     <div class="form-signin bg-light">
-        <form>
+        <form action="../../model/admin/adminLogin.php" method="POST">
             <img class="mb-4" src="../../assets/img/s.png" alt="" width="72">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -81,7 +81,7 @@
             </div>
 
            
-            <a class="w-100 btn btn-lg btn-dark" type="submit" href="./dashboard.php">Sign in</a>
+            <input type="submit" value="Sing In" class="btn btn-dark" >
             <p class="mt-5 mb-3 text-muted">&copy; New Samadhi</p>
         </form>
     </div>

@@ -51,12 +51,18 @@ include './php/connect.php';
    
 
     <!-- ======= Courses Section ======= -->
-    
+    <section id="courses" class="courses mb-5">
+    <div class="container" data-aos="fade-up" style="margin-top: 50px;">
+    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+    <div class=" d-flex align-items-stretch">
           <?php
      $class = new Classes();
      $class->getClasses();
      ?>
-         
+    </div>
+    </div>
+    </div>
+    </section>    
 
        <!-- End Courses Section -->
     

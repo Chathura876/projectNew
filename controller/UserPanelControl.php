@@ -153,8 +153,8 @@ class userPanel
                             </a>
                         </li>
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/"
-                                class="btn d-grid btn-danger text-white" target="_blank">
+                            <a href="../../index.php"
+                                class="btn d-grid btn-danger text-white" >
                                 Sing Out</a>
                         </li>
                     </ul>
@@ -178,12 +178,16 @@ function GetNewClass()
 {
     include '../../php/connect.php';
     $id = $_GET['stdID'];
-    $sql = "SELECT stdTB.grade, clTB.*
-    FROM student stdTB
-    INNER JOIN class clTB ON clTB.grade = stdTB.grade
-    LEFT JOIN studentclass sc ON sc.ClassID = clTB.classID
-    WHERE stdTB.stdID = $id
-    AND sc.ClassID IS NULL";
+
+    $sql1="select * from studentclass where stdID=$id";
+    $result1=mysqli_query($con,$sql1);
+    $num=mysqli_num_rows($result1);
+    if($num>0)
+    {
+        $sql = "SELECT stdTB.grade, clTB.*
+        FROM student stdTB
+        INNER JOIN class clTB ON clTB.grade = stdTB.grade
+         WHERE stdTB.stdID = $id";
 
 
 
@@ -214,6 +218,47 @@ function GetNewClass()
       </script>';
       
     }
+    }
+    else if($num==0)
+    {
+        $sql = "SELECT stdTB.grade, clTB.*
+        FROM student stdTB
+        INNER JOIN class clTB ON clTB.grade = stdTB.grade
+        LEFT JOIN studentclass sc ON sc.classID = clTB.classID
+        WHERE stdTB.stdID = $id";
+
+
+
+    $result = mysqli_query($con, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $classTitel = $row['classTitel'];
+        $className = $row['className'];
+        $image = $row['image'];
+        $des = $row['description'];
+        $classID = $row['classID'];
+
+        echo '
+        
+        <div class="col-md-4">
+        <div class="card mt-3" style="width: 18rem;">
+        <img class="card-img-top" src="../../' . $image . '" alt="Card image cap" style="width: 300px; height: 300px;">
+        <div class="card-body">
+          <h3 class="card-title">' . $className . '</h3>
+          <p class="card-text">' . $des . '</p>
+           <a href="../../view/UserPanal/myClasses.php?stdID='. $id .'& classID='.$classID.'" class="btn btn-dark" onclick="message()">Join Now</a>
+        </div>
+      </div></div>
+      <script>
+        function message()
+        {
+            alert(\'Join Successfully..\');
+        }
+      </script>';
+      
+    }
+    }
+   
+   
 }
 
 //    ===========================End=====================================
@@ -264,7 +309,7 @@ function getMyClass()
     echo ' <div class="col-md-4 col-sm-12 mt-3">
     <div class="card" style="width: 18rem;">
 
-        <img class="card-img-top" src="../../'.$image.'" alt="Card image cap">
+        <img class="card-img-top" src="../../'.$image.'" alt="Card image cap"  style="width: 300px; height: 300px;">
 
         <div class="card-body">
           <h5 class="card-title">'.$className.'</h5>
