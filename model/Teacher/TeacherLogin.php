@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
          {
              session_start();
                 $_SESSION['UserName'] = $uName;
-                header('location:../../../../../hnd/view/Admin/dashboard.php?teacherID='.$teacherID.'');
+                header('location:../../../../../hnd/view/TeacherView/dashboard.php?teacherID='.$teacherID.'');
          } 
         else {
 

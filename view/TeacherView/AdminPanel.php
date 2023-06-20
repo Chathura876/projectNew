@@ -15,23 +15,21 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Teacher</title>
 </head>
 <body id="body-pd">
    <?php
    include '../../php/connect.php';
-   $id=$_GET['teacherID'];
-   $sql="select * from teacher where teacherID ='$id'";
+   $id=$_GET['stdID'];
+   $sql="select * from student where stdID='$id'";
     $result=mysqli_query($con,$sql);
     while($row=mysqli_fetch_assoc($result))
     {
-        $image=$row['Timage'];
-        $name=$row['name'];
-    
+        $image=$row['image'];
+        $fname=$row['Fist_Name'];
+        $lname=$row['Last_Name'];
+        $fullName=$fname." ".$lname;
 
       
        $img= "../.$image";
@@ -42,9 +40,8 @@
 
    echo '  <header class="header" id="header">
        
-        <div class="header_toggle "> <i class=\'bx bx-menu\' id="header-toggle"></i> </div>
-        <span style="margin-left: 1000px;"><i class="fa-solid fa-bell fa-shake"></i></span>
-        <p style="margin-left: 5px;">'.$name.'
+        <div class="header_toggle"> <i class=\'bx bx-menu\' id="header-toggle"></i> </div>
+        <p style="margin-left: 1100px;">'.$fullName.'
         </p>
       <div class="header_img"> <img src="'.$img.'" alt=""> </div>
     </header>
@@ -75,21 +72,10 @@
                     class="nav_name">SignOut</span> </a>
         </nav>
     </div>
-    
     <!--Container Main start-->
-  <!-- <div id="chart_div" class="mt-5" style="width: 500px; height: 500px; margin-top: 0px; margin-left: 50px;"></div> -->
-        <div class="container mt-5 ml-5">
-            <div class="row">
-                <div class="col">
-                    <h1>hi</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, repudiandae expedita quia sequi velit voluptates est ex doloremque eveniet quae labore, sed nam. Rerum delectus veniam, id ad magni eos eveniet consequuntur libero repudiandae ipsa? Rem mollitia, quisquam rerum unde ab maiores corporis laboriosam iusto debitis numquam veniam sed optio provident exercitationem consequatur laudantium, quia incidunt? Magnam ratione eaque quidem ad unde tempore aut voluptate incidunt, totam vel, sunt fuga autem officia doloremque facere. Magnam, voluptas iure doloribus autem reiciendis eligendi, rem suscipit nulla officiis dolor repellendus velit illo neque blanditiis hic. Nobis harum quos necessitatibus? Quod repellendus quo tempore similique modi consequuntur id ducimus magni deleniti. Eveniet quia cumque totam nostrum odio, nihil error ratione exercitationem, natus iure voluptatum officia unde a aliquid sunt molestias? Voluptate, incidunt tenetur accusantium nam vitae aspernatur porro omnis ab esse recusandae temporibus odio exercitationem ipsa mollitia fugit? Aspernatur modi commodi molestiae quisquam repellendus, earum saepe ut possimus nemo nihil totam numquam ullam veniam est explicabo. Inventore veniam eligendi quod nihil ipsa delectus, incidunt amet sint sequi. Sit quaerat dolores recusandae, corporis necessitatibus accusamus quos voluptate assumenda molestias hic nam obcaecati praesentium repudiandae ab veritatis, maxime maiores quo, modi quisquam? Delectus labore maiores voluptatum sequi. Minus aspernatur blanditiis architecto, consequuntur voluptatem omnis rem praesentium enim, alias excepturi odio in maiores natus voluptas numquam voluptates repellendus sapiente fugiat! Et accusamus id rem, sequi perferendis cumque nulla magnam nesciunt pariatur soluta, nemo doloribus maiores iure quaerat magni ea eaque corrupti eligendi dicta deleniti repellat quasi! Quas, provident reprehenderit facilis illo aspernatur voluptatem assumenda fugiat velit iusto similique totam asperiores ea architecto at vel ratione modi est autem odio officia facere? Dolores provident expedita obcaecati, aliquam enim neque aperiam in, tempore nemo nam doloribus quis eaque corporis possimus nisi consequatur. Voluptatibus magni quasi adipisci voluptates vitae, officiis placeat ad quisquam veniam cum animi unde corporis hic distinctio necessitatibus? Qui, sit tenetur? Maiores illum pariatur voluptatum rem est optio debitis animi qui corrupti minima architecto, exercitationem placeat eaque nesciunt, eius nostrum mollitia dignissimos earum eveniet repellendus libero rerum? Similique quo asperiores eius temporibus odio, itaque sed facilis est fugiat labore exercitationem consequatur nulla debitis veritatis, error voluptate ratione amet! Velit est pariatur assumenda veniam nostrum odio quae, fugiat perspiciatis, at facere eaque saepe repudiandae rem dolore mollitia fuga libero sequi omnis et natus modi! Ullam explicabo iste sunt a obcaecati cupiditate! Voluptas tenetur pariatur odio necessitatibus, non possimus sequi quas sed vitae aspernatur corrupti natus corporis voluptate facilis molestias quae et autem sit officia praesentium culpa totam facere! Obcaecati facere, iste ea maxime, quas quis pariatur perspiciatis repellat velit assumenda reprehenderit labore provident debitis dicta aut doloremque sit? Aperiam, minima. Quo sequi temporibus dolore soluta officiis quisquam dolores ducimus in. Aut, nemo excepturi! Numquam ea similique, nam tempora asperiores neque veniam fugit quo adipisci pariatur nostrum provident quibusdam repellendus ducimus nulla, accusamus facere cum animi quidem ullam voluptatem. Ex et corporis excepturi nesciunt, a rem numquam ullam earum sunt aliquid voluptas mollitia non natus aliquam nulla repudiandae laboriosam!</p>
-                </div>
-            </div>
+  <div id="chart_div" class="mt-5" style="width: 500px; height: 500px; margin-top: 200px; margin-left: 50px;"></div>
 
-        </div>
-       
-        
-  <!-- <div id="charts_div" style="width: 900px; height: 500px; margin-left: 100px;"></div> -->
+  <div id="charts_div" style="width: 900px; height: 500px; margin-left: 100px;"></div>
     <!--Container Main end-->
     
 

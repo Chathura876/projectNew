@@ -1,20 +1,19 @@
 <?php
-
-class Admin 
+class Teacher 
 {
-      // ===========================================================================
+  // ===========================================================================
                     //    This function use get a navbar and side menu
-    //    ===========================================================================
+  //===========================================================================
     function getUserSideBar()
     {
-        $id = $_GET['AdminID'];
+        $id = $_GET['teacherID'];
 
         include '../../php/connect.php';
-        $sql    = "select * from admin where id = '$id'";
+        $sql    = "select * from teacher where teacherID = '$id'";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
             $name    = $row['name'];
-            $img      = $row['image'];
+            $img      = $row['Timage'];
         }
         echo '  <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
@@ -22,7 +21,7 @@ class Admin
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.php?AdminID='.$id.'">
+                    <a class="navbar-brand" href="dashboard.php?stdID='.$id.'">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -100,28 +99,28 @@ class Admin
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php?AdminID='.$id.'"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php?stdID='.$id.'"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php?AdminID='.$id.'"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php?stdID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./myClasses_.php?AdminID='.$id.'"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./myClasses_.php?stdID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">My Classes</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./newClass.php?AdminID='.$id.'"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./newClass.php?stdID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
                                 <span class="hide-menu">New Classes</span>
@@ -167,6 +166,7 @@ class Admin
     }
 // ================================End===================================================
 }
+
 
 
 ?>
