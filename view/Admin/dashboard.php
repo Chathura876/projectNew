@@ -53,15 +53,15 @@ $sideBar->getUserSideBar();
 
            
         echo'
-        <div class="page-breadcrumb bg-white">
+        <div class="page-breadcrumb ">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title text-light">Dashboard</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto">
-                                <li><a href="#" class="fw-normal">Dashboard</a></li>
+                                <li><a href="#" class="fw-normal text-light">Dashboard</a></li>
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
@@ -82,8 +82,8 @@ $sideBar->getUserSideBar();
                 <!-- ============================================================== -->
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Visit</h3>
+                        <div class="white-box analytics-info" style="background-color: rgba(31, 30, 33, 0.73);">
+                            <h3 class="box-title text-light">Total Visit</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash"><canvas width="67" height="30"
@@ -95,8 +95,8 @@ $sideBar->getUserSideBar();
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Page Views</h3>
+                        <div class="white-box analytics-info " style="background-color: rgba(31, 30, 33, 0.73);">
+                            <h3 class="box-title text-light">Total Page Views</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash2"><canvas width="67" height="30"
@@ -108,8 +108,8 @@ $sideBar->getUserSideBar();
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">Unique Visitor</h3>
+                        <div class="white-box analytics-info bg-dark">
+                            <h3 class="box-title text-light">Unique Visitor</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash3"><canvas width="67" height="30"
@@ -127,15 +127,15 @@ $sideBar->getUserSideBar();
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Your Exam Mark</h3>
+                        <div class="white-box bg-dark">
+                            <h3 class="box-title text-light">Your Exam Mark</h3>
                             <div class="d-md-flex">
                                 <ul class="list-inline d-flex ms-auto">
                                     <li class="ps-3">
-                                        <h5><i class="fa fa-circle me-1 text-info"></i>Mathematic</h5>
+                                        <h5 class="text-light"><i class="fa fa-circle me-1 text-info"></i>Mathematic</h5>
                                     </li>
                                     <li class="ps-3">
-                                        <h5><i class="fa fa-circle me-1 text-inverse"></i>Sinhala</h5>
+                                        <h5 class="text-light"><i class="fa fa-circle me-1 text-inverse"></i>Sinhala</h5>
                                     </li>
                                 </ul>
                             </div>
@@ -152,11 +152,11 @@ $sideBar->getUserSideBar();
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
-                        <div class="white-box">
+                        <div class="white-box bg-dark">
                             <div class="d-md-flex mb-3">
                                 <h3 class="box-title mb-0">Recent sales</h3>
                                 <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
-                                    <select class="form-select shadow-none row border-top">
+                                    <select class="form-select shadow-none row border-top text-light">
                                         <option>March 2023</option>
                                         <option>April 2023</option>
                                         <option>May 2023</option>

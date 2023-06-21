@@ -16,9 +16,9 @@ class Admin
             $name    = $row['name'];
             $img      = $row['image'];
         }
-        echo '  <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin6">
+        echo '  <header class="topbar " data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark" >
+                <div class="navbar-header bg-dark " data-logobg="skin6">
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
@@ -31,7 +31,7 @@ class Admin
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <h3 class="text-dark">New Samadhi</h3>
+                            <h3 class="text-light">New Samadhi</h3>
                             
                         </span>
                     </a>
@@ -42,17 +42,17 @@ class Admin
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
                     <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                        href="javascript:void(0)"><i class="ti-menu ti-close text-light"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse " id="navbarSupportedContent" data-navbarbg="skin5">
                    
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+                    <ul class="navbar-nav ms-auto d-flex align-items-center ">
 
                         <!-- ============================================================== -->
                         <!-- Search -->
@@ -92,63 +92,85 @@ class Admin
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
+        <aside class="left-sidebar bg-dark" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
+                <nav class="sidebar-nav ">
+                    <ul id="sidebarnav " >
                         <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
+                        <li class="sidebar-item pt-2 bg-dark">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Dashboard</span>
+                                <span class="hide-menu text-light">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php?AdminID='.$id.'"
+                        <li class="sidebar-item bg-dark">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="analysis.php?AdminID='.$id.'"
+                                aria-expanded="false">
+                                <i class="fa fa-columns" aria-hidden="true"></i>
+                                <span class="hide-menu text-light">Analysis</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item bg-dark">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="student.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Profile</span>
+                                <span class="hide-menu text-light">Student</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item bg-dark">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./myClasses_.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">My Classes</span>
+                                <span class="hide-menu text-light">Teacher</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item bg-dark">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./newClass.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">New Classes</span>
+                                <span class="hide-menu text-light">Class</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item bg-dark">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
-                                <span class="hide-menu">Note</span>
+                                <span class="hide-menu text-light">Lesson</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item bg-dark">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
                                 aria-expanded="false">
                                 <i class="fa fa-columns" aria-hidden="true"></i>
-                                <span class="hide-menu">Payment</span>
+                                <span class="hide-menu text-light">Exam</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
+                        <li class="sidebar-item bg-dark">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
                                 aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                <span class="hide-menu">Error 404</span>
+                                <i class="fa fa-columns" aria-hidden="true"></i>
+                                <span class="hide-menu text-light">News</span>
                             </a>
                         </li>
-                        <li class="text-center p-20 upgrade-btn">
+                        <li class="sidebar-item bg-dark">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
+                                aria-expanded="false">
+                                <i class="fa fa-columns" aria-hidden="true"></i>
+                                <span class="hide-menu text-light">Event</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item bg-dark">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
+                                aria-expanded="false">
+                                <i class="fa fa-columns" aria-hidden="true"></i>
+                                <span class="hide-menu text-light">Customization</span>
+                            </a>
+                        </li>
+
+                        <li class="text-center p-20 upgrade-btn bg-dark">
                             <a href="../../index.php"
                                 class="btn d-grid btn-danger text-white" >
                                 Sing Out</a>
@@ -161,7 +183,7 @@ class Admin
             <!-- End Sidebar scroll-->
         </aside>
     
-        <div class="page-wrapper">
+        <div class="page-wrapper" style="background-color: rgb(0, 0, 0);">
           
             ';
     }
