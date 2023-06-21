@@ -4,7 +4,9 @@ require_once('../../controller/AdminPanelControl.php');
 
 include '../../php/connect.php';
 
-echo '
+
+
+?>
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -19,7 +21,10 @@ echo '
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
+
     <title>Ample Admin Lite Template by WrapPixel</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
@@ -50,12 +55,15 @@ echo '
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->';
-           $sideBar = new Admin();
-$sideBar->getUserSideBar();
+        <!-- ============================================================== -->
+        <?php
+                   $sideBar = new Admin();
+                   $sideBar->getUserSideBar();
+        ?>
+
 
         
-      echo'  <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
@@ -65,19 +73,18 @@ $sideBar->getUserSideBar();
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
+            <div class="page-breadcrumb bg-light">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title text-light">Basic Table</h4>
+                        <h4 class="page-title text-dark">Student</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto">
-                                <li><a href="#" class="fw-normal text-light">Dashboard</a></li>
+                                <li><a href="#" class="fw-normal text-dark">Dashboard</a></li>
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
-                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                to Pro</a>
+                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
                         </div>
                     </div>
                 </div>
@@ -86,6 +93,7 @@ $sideBar->getUserSideBar();
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
+
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -95,65 +103,91 @@ $sideBar->getUserSideBar();
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="white-box bg-dark">
-                            <h3 class="box-title">Basic Table</h3>
-                            <p class="text-muted">Add class <code>.table</code></p>
+                        <div class="white-box" >
+                            <div class="row">
+                                <div class="col-4">
+                                    <h3 class="box-title">Student Details</h3>
+                                </div>
+                                <div class="col-4">
+    <!-- ===============================================filter student data using grade======================= -->
+                                    <select class="form-select" aria-label="Default select example" name="grade" id="grade">
+                                    <option value="1" selected>Select Grade</option>
+                                        <option value="1">All</option>
+                                    <?php
+                                    $sql="select * from grade";
+                                    $result=mysqli_query($con,$sql);
+                                    while ($row=mysqli_fetch_assoc($result))
+                                    {
+                                        $grade=$row['id'];
+                                        echo '<option value='.$grade.'>Grade '.$grade.'</option>';
+                                    }
+                                    
+                                    ?>
+                                       
+                                        
+                                      </select>
+                                </div>
+<!-- =================================================End filter============================================= -->
+                                <div class="col-4">
+                                    <button class="btn btn-primary text-light mt-2 mb-4" style="margin-left: 250px; "> Add Student</button>
+                           
+                                </div>
+                            </div>
+                            
+                           
+                            
+                          
                             <div class="table-responsive">
-                                <table class="table text-nowrap">
+                                <table class="table table-hover bg-light mt-5" id="tb">
                                     <thead>
-                                        <tr>
-                                            <th class="border-top-0">#</th>
-                                            <th class="border-top-0">First Name</th>
-                                            <th class="border-top-0">Last Name</th>
-                                            <th class="border-top-0">Username</th>
-                                            <th class="border-top-0">Role</th>
-                                        </tr>
+                                      <tr>
+                                        <th class="text-dark">Reg No</th>
+                                        <th class="text-dark">Fist Name</th>
+                                        <th class="text-dark">Last Name</th>
+                                        <th class="text-dark">Address</th>
+                                        <th class="text-dark">Grade</th>
+                                        <th class="text-dark">Mobile</th>
+                                        <th class="text-dark">School</th>
+                                        <th class="text-dark">Option</th>
+
+                                      </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Deshmukh</td>
-                                            <td>Prohaska</td>
-                                            <td>@Genelia</td>
-                                            <td>admin</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Deshmukh</td>
-                                            <td>Gaylord</td>
-                                            <td>@Ritesh</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sanghani</td>
-                                            <td>Gusikowski</td>
-                                            <td>@Govinda</td>
-                                            <td>developer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Roshan</td>
-                                            <td>Rogahn</td>
-                                            <td>@Hritik</td>
-                                            <td>supporter</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Joshi</td>
-                                            <td>Hickle</td>
-                                            <td>@Maruti</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nigam</td>
-                                            <td>Eichmann</td>
-                                            <td>@Sonu</td>
-                                            <td>supporter</td>
-                                        </tr>
+                                        <?php
+                              $sql="select * from student";
+                              $result=mysqli_query($con,$sql);
+                              while($row=mysqli_fetch_assoc($result))
+                              {
+                                    $reg=$row['stdID'];
+                                    $fname=$row['Fist_Name'];
+                                    $lname=$row['Last_Name'];
+                                    $grade=$row['grade'];
+                                    $address=$row['Address'];
+                                    $mobile=$row['mobile'];
+                                    $school=$row['school'];
+
+                                    echo'   <tr>
+                                    <td class="text-dark">'.$reg.'</td>
+                                    <td class="text-dark">'.$fname.'</td>
+                                    <td class="text-dark">'.$lname.'</td>
+                                   <td class="text-dark">'.$address.'</td>
+                                   <td class="text-dark">Grade - '.$grade.'</td>
+                                    <td class="text-dark">'.$mobile.'</td>
+                                    <td class="text-dark">'.$school.'</td>
+                                    <td>
+                                        <button class="btn btn-warning text-dark mr-3">Update</button>
+                                         <button class="btn btn-danger text-light">Delete</button>
+                                    </td>
+                                  </tr>';
+                                    
+
+                              }
+
+                            ?>
+                                      
+                                     
                                     </tbody>
-                                </table>
+                                  </table>
                             </div>
                         </div>
                     </div>
@@ -202,6 +236,31 @@ $sideBar->getUserSideBar();
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+    <script>
+$(document).ready(function(){
+    $('#grade').on('change', function() {
+        var value = $(this).val();
+        
+        $.ajax({
+            url: "../../../hnd/model/admin/StudentFillter.php",
+            type: "POST",
+            data: { request: value },
+            beforeSend: function() {
+                $("#tb").html("<span>Loading...</span>");
+            },
+            success: function(data) {
+                $("#tb").html(data);
+            }
+            
+        });
+    });
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
-</html>';
+
+
+
+</html>

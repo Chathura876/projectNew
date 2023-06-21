@@ -53,15 +53,15 @@ $sideBar->getUserSideBar();
 
            
         echo'
-        <div class="page-breadcrumb ">
+        <div class="page-breadcrumb bg-light">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title text-light">Dashboard</h4>
+                        <h4 class="page-title text-dark">Dashboard</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto">
-                                <li><a href="#" class="fw-normal text-light">Dashboard</a></li>
+                                <li><a href="#" class="fw-normal text-dark">Dashboard</a></li>
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
@@ -82,7 +82,7 @@ $sideBar->getUserSideBar();
                 <!-- ============================================================== -->
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info" style="background-color: rgba(31, 30, 33, 0.73);">
+                        <div class="white-box analytics-info" style=" background: linear-gradient(to bottom, #3a3a3c 1%, #000000 74%); border-radius: 5%;" >
                             <h3 class="box-title text-light">Total Visit</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
@@ -95,7 +95,7 @@ $sideBar->getUserSideBar();
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info " style="background-color: rgba(31, 30, 33, 0.73);">
+                        <div class="white-box analytics-info "  style="background: linear-gradient(to bottom, #0099cc 1%, #0066cc 100%); border-radius: 5%;" >
                             <h3 class="box-title text-light">Total Page Views</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
@@ -108,7 +108,7 @@ $sideBar->getUserSideBar();
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info bg-dark">
+                        <div class="white-box analytics-info" style="background: linear-gradient(to top, #000099 1%, #0033cc 81%); border-radius: 5%;">
                             <h3 class="box-title text-light">Unique Visitor</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
@@ -127,15 +127,15 @@ $sideBar->getUserSideBar();
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="white-box bg-dark">
-                            <h3 class="box-title text-light">Your Exam Mark</h3>
+                        <div class="white-box ">
+                            <h3 class="box-title text-dark">Your Exam Mark</h3>
                             <div class="d-md-flex">
                                 <ul class="list-inline d-flex ms-auto">
                                     <li class="ps-3">
-                                        <h5 class="text-light"><i class="fa fa-circle me-1 text-info"></i>Mathematic</h5>
+                                        <h5 class="text-dark"><i class="fa fa-circle me-1 text-info"></i>Mathematic</h5>
                                     </li>
                                     <li class="ps-3">
-                                        <h5 class="text-light"><i class="fa fa-circle me-1 text-inverse"></i>Sinhala</h5>
+                                        <h5 class="text-dark"><i class="fa fa-circle me-1 text-inverse"></i>Sinhala</h5>
                                     </li>
                                 </ul>
                             </div>
