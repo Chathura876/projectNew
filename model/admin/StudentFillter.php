@@ -47,7 +47,9 @@ if(isset($_POST['request']))
         <td class="text-dark"><?php echo $mobile; ?></td>
         <td class="text-dark"><?php echo $school; ?></td>
         <td>
-          <button class="btn btn-dark mr-3">Update</button>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateSTD" >
+            Update
+          </button>
           <button class="btn btn-danger">Delete</button>
         </td>
       </tr>
@@ -88,11 +90,13 @@ if(isset($_POST['request']))
         <td class="text-dark"><?php echo $fname; ?></td>
         <td class="text-dark"><?php echo $lname; ?></td>
         <td class="text-dark"><?php echo $address; ?></td>
-        <td class="text-dark">Grade - <?php echo $grade; ?></td>
+        <td class="text-dark" style="width: 200px;">Grade - <?php echo $grade; ?></td>
         <td class="text-dark"><?php echo $mobile; ?></td>
         <td class="text-dark"><?php echo $school; ?></td>
-        <td>
-          <button class="btn btn-dark mr-3">Update</button>
+        <td style="width: 200px;">
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateSTD" >
+            Update
+          </button>
           <button class="btn btn-danger">Delete</button>
         </td>
       </tr>
