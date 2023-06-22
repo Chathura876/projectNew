@@ -135,10 +135,113 @@ include '../../php/connect.php';
 
 <!-- ===============================================Add Student Model================================= -->
 
+<!-- ============================Send Data to Database=========================== -->
+<?php
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+  include '../../php/connect.php';
+  $FName = $_POST['FName'];
+  $LName = $_POST['LName'];
+  $address = $_POST['address'];
+  $mobile = $_POST['mobile'];
+  $school = $_POST['school'];
+  $UserName = $_POST['UserName'];
+  $password = $_POST['password'];
+  $BOD = $_POST['BOD'];
+  $sex = $_POST['sex'];
 
+  // ========select district===========
+  if(isset($_POST['district']))
+  {
+    $district = $_POST['district'];
+  }
+  else
+  {
+    $district = "NULL";
+  }
+
+  // ====================================
+
+  // =========select grade==============
+  if(isset($_POST['grade']))
+  {
+    $grade = $_POST['grade'];
+  }
+  else
+  {
+    $grade = "NULL";
+  }
+  // ========================================
+
+  // Get the file details
+  $fileName = $_FILES['img']['name']; // Name of the uploaded file
+  $fileTmpName = $_FILES['img']['tmp_name']; // Temporary location of the file
+  $fileSize = $_FILES['img']['size']; // Size of the file
+  $fileError = $_FILES['img']['error']; // Error code associated with the file upload
+  $fileType = $_FILES['img']['type']; // Type of the file
+
+  // Check if the file was uploaded without any errors
+  if ($fileError === 0) {
+    // Specify the directory where you want to save the uploaded images
+    $uploadDirectory = '../../uploadImage/';
+    
+    // Generate a unique name for the image by appending a timestamp
+    $fileTimestamp = time();
+    $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+    $fileDestination = $uploadDirectory . $fileTimestamp . '.' . $fileExtension;
+    
+    // Move the uploaded file to the specified destination
+    if (move_uploaded_file($fileTmpName, $fileDestination)) {
+      // File upload was successful
+      $filePath = $fileDestination;
+    } else {
+      // File upload failed
+      $filePath = "NULL";
+    }
+  } else {
+    // File upload encountered an error
+    $filePath = "NULL";
+  }
 
   
-  <!-- Modal -->
+
+  $sql = "select * from student where UserName = '$UserName'";
+  $result = mysqli_query($con, $sql);
+  if($result)
+  {
+    $num = mysqli_num_rows($result);
+    if($num>0)
+    {
+      // echo '
+      // <script>
+      // alert("User Name already exist!");
+      // </script>
+      // ';
+    }
+    else
+    {
+      $sql = "INSERT INTO `student` (`stdID`, `Fist_Name`, `Last_Name`, `Address`, `district`, `mobile`, `sex`, `BOD`, `grade`, `school`, `UserName`, `password`, `image`, `timestamp`) VALUES (NULL, '$FName', '$LName', '$address', '$district', '$mobile', '$sex', '$BOD', '$grade', '$school', '$UserName', '$password', '$filePath', current_timestamp());";
+      $result = mysqli_query($con, $sql);
+      if($result)
+      {
+        echo '
+        <script>
+        alert("Your entry was submitted successfully!");
+        </script>
+        ';
+      }
+      else
+      {
+        die("Error". mysqli_error($con));
+      }
+    }
+  }
+}
+// ==========================End data Send Process======================
+?>
+
+  
+  <!--============= start add student Modal ===========================-->
   <div class="modal" id="AddSTD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
@@ -149,7 +252,8 @@ include '../../php/connect.php';
           </button>
         </div>
         <div class="modal-body">
-            <form method="POST" enctype="multipart/form-data">
+
+            <form method="POST"  enctype="multipart/form-data">
                 <div class="container-fluid">
                 <div class="row">
                  <div class="col-6">
@@ -507,8 +611,32 @@ include '../../php/connect.php';
                                     </thead>
                                     <tbody>
                                         <?php
-                              $sql="select * from student";
+                              $sql="select * from student ";
                               $result=mysqli_query($con,$sql);
+                              $num=mysqli_num_rows($result);
+                              $pageNum=6;
+                              $totalPage=ceil($num/$pageNum);
+                              $admin=$_GET['AdminID'];
+
+                              for($btn=1;$btn<=$totalPage;$btn++)
+                              {
+                                echo '<button class="btn btn-light mx-2 mt-5"><a href="student.php?AdminID='.$admin.'&pageNo='.$btn.'" class="text-primary">'.$btn.'</a></button>';
+                              }
+                              if(isset($_GET['pageNo']))
+                              {
+                                $page=$_GET['pageNo'];
+                                //echo $page;
+                              }
+                              else
+                              {
+                                $page=1;
+                              }
+
+                              $startLimit = ($page- 1) * $pageNum;
+                              $sql = "SELECT * FROM student LIMIT ".$startLimit.','.$pageNum;
+                              
+                              $result = mysqli_query($con, $sql);
+
                               while($row=mysqli_fetch_assoc($result))
                               {
                                     $reg=$row['stdID'];
@@ -544,6 +672,7 @@ include '../../php/connect.php';
                                      
                                     </tbody>
                                   </table>
+                                
                             </div>
                         </div>
                     </div>
