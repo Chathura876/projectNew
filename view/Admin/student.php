@@ -381,14 +381,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
               <div class="form-group mb-2">
                 <label for="grade">Grade :</label>
               <select name="grade" id="grade">
-                <option value="Grade-6">Grade-6</option>
-                <option value="Grade-7">Grade-7</option>
-                <option value="Grade-6">Grade-8</option>
-                <option value="Grade-7">Grade-9</option>
-                <option value="Grade-6">Grade-10</option>
-                <option value="Grade-7">Grade-11</option>
-                <option value="Grade-6">Grade-12</option>
-                <option value="Grade-7">Grade-13</option>
+                <option value="6">Grade-6</option>
+                <option value="7">Grade-7</option>
+                <option value="8">Grade-8</option>
+                <option value="9">Grade-9</option>
+                <option value="10">Grade-10</option>
+                <option value="11">Grade-11</option>
+                <option value="12">Grade-12</option>
+                <option value="13">Grade-13</option>
               </select>
               </div>
             </div>
@@ -420,11 +420,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Update Student Details</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" id="btnClose" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body-u">
             <form method="POST" enctype="multipart/form-data">
                 <div class="container-fluid">
                 <div class="row">
@@ -434,7 +434,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="form-group">
                   <label for="exampleInputEmail1">Fist Name :</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter Fist Name" autocomplete="off" name="FName">
+                    placeholder="Enter Fist Name" autocomplete="off" name="uFName">
                     
       
                 </div>
@@ -442,8 +442,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="col-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Last Name :</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter Last Name" autocomplete="off" name="LName">
+                  <input type="text" class="form-control" id="exampleInputEmail1" 
+                    placeholder="Enter Last Name" autocomplete="off" name="uLName">
                 
                 </div>
                 </div>
@@ -452,8 +452,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="col-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Address :</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter Address " autocomplete="off" name="address">
+                  <input type="text" class="form-control" id="exampleInputEmail1" 
+                    placeholder="Enter Address " autocomplete="off" name="uaddress">
                     </div>
             </div>
               
@@ -462,55 +462,55 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="col-6">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Mobile :</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                      placeholder="Enter Mobile No " autocomplete="off" name="mobile">
+                    <input type="text" class="form-control" id="exampleInputEmail1" 
+                      placeholder="Enter Mobile No " autocomplete="off" name="umobile">
                   </div>
                 </div>
                   <div class="col-6">
                     <div class="form-group">
                       <label for="exampleInputEmail1">School :</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter School " autocomplete="off" name="school">
+                      <input type="text" class="form-control" id="exampleInputEmail1" 
+                        placeholder="Enter School " autocomplete="off" name="uschool">
                     </div>
                   </div>
                   <div class="col-6">
                     <div class="form-group">
                       <label for="exampleInputEmail1">User Name :</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" 
-                        placeholder="Enter School " autocomplete="off" name="UserName">
+                        placeholder="Enter School " autocomplete="off" name="uUserName">
                     </div>
                   </div>
                     <div class="col-6">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Password :</label>
-                        <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                          placeholder="Enter School " autocomplete="off" name="password">
+                        <input type="password" class="form-control" id="exampleInputEmail1" 
+                          placeholder="Enter School " autocomplete="off" name="upassword">
                       </div>
                     </div>
                   <div class="col-6">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Birthday :</label>
-                      <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter School " autocomplete="off" name="BOD">
+                      <input type="date" class="form-control" id="exampleInputEmail1" 
+                        placeholder="Enter School " autocomplete="off" name="uBOD">
                     </div>
                   </div>
                     <div class="col-12">
                       <div class="form-group m-2">
                         <label for="exampleInputEmail1">Image :</label>
-                        <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                          placeholder="Enter School " autocomplete="off" name="img">
+                        <input type="file" class="form-control" id="exampleInputEmail1"
+                          placeholder="Enter School " autocomplete="off" name="uimg">
                       </div>
                     </div>
               <div class="col-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Sex :</label>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="male" />
+                    <input class="form-check-input" type="radio" name="usex" id="inlineRadio1" value="male" />
                     <label class="form-check-label" for="inlineRadio1">Male</label>
                   </div>
               
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="female" />
+                    <input class="form-check-input" type="radio" name="usex" id="inlineRadio2" value="female" />
                     <label class="form-check-label" for="inlineRadio2">Female</label>
                   </div>
                 </div>
@@ -518,7 +518,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="col-6">
               <div class="form-group ">
                 <label for="district">District :</label>
-              <select name="district" id="district">
+              <select name="udistrict" id="district">
                 <option value="Aparam">Aparam</option>
                 <option value="Anuradhapura">Anuradhapura</option>
                 <option value="Badulla">Badulla</option>
@@ -552,7 +552,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="col-6">
               <div class="form-group mb-2">
                 <label for="grade">Grade :</label>
-              <select name="grade" id="grade">
+              <select name="ugrade" id="grade">
                 <option value="Grade-6">Grade-6</option>
                 <option value="Grade-7">Grade-7</option>
                 <option value="Grade-6">Grade-8</option>
@@ -570,7 +570,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             
         <center>
                 <button type="submit" class="btn btn-warning m-2" >Update</button>
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button></center>
+                <button type="button" class="btn btn-dark" id="btnClose" data-dismiss="modal">Close</button></center>
               </div>
               </form>
         </div>
@@ -583,6 +583,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   </div>
 <!-- 
 =========================================End Update Student Model================================ -->
+
+<!-- =============================Start Delete Student ================================================ -->
+<?php
+ if(isset($_GET['D']))
+ {
+  $d=$_GET['D'];
+  $sql="DELETE FROM student WHERE `student`.`stdID` =$d";
+  $result=mysqli_query($con,$sql);
+ }
+
+?>
+
+<!-- ===================================== End Delete Proccess ======================== -->
                                 <div class="col-4">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddSTD" style="margin-left: 250px;">
                                         Add Student
@@ -620,7 +633,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
                               for($btn=1;$btn<=$totalPage;$btn++)
                               {
-                                echo '<button class="btn btn-light mx-2 mt-5"><a href="student.php?AdminID='.$admin.'&pageNo='.$btn.'" class="text-primary">'.$btn.'</a></button>';
+                                echo '<button class="btn btn-light mx-2 mt-3"><a href="student.php?AdminID='.$admin.'&pageNo='.$btn.'" class="text-primary">'.$btn.'</a></button>';
                               }
                               if(isset($_GET['pageNo']))
                               {
@@ -657,10 +670,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <td class="text-dark">'.$school.'</td>
 
                                     <td style="width: 200px;">
-                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateSTD" >
+                                        <button type="button" id="'.$reg.'" class="ubtn btn btn-warning"  >
                                             Update
                                           </button>
-                                         <button class="btn btn-danger text-light">Delete</button>
+                                         <a href="./student.php?AdminID='.$admin.'&D='.$reg.'" class="btn btn-danger text-light" onclick="deleteData()">Delete</a>
                                     </td>
                                   </tr>';
                                     
@@ -740,6 +753,32 @@ $(document).ready(function(){
         });
     });
 });
+</script>
+<script>
+function deleteData() {
+  confirm("Are you sure delete this ?");
+}
+</script>
+<script>
+  $(document).ready(function(){
+    $('.ubtn').click(function(){
+   idStd=$(this).attr('id');
+   
+      $.ajax({url:"../../controller/select.php",
+        method:'post',
+        data:{std_id:idStd},
+        success: function(result){
+    $(".modal-body-u").html(result);
+  }});
+
+
+      $('#updateSTD').modal('show');
+    });
+
+    $('#btnClose').click(function(){
+      $('#updateSTD').modal('hide');
+    });
+  });
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

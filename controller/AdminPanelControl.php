@@ -15,6 +15,7 @@ class Admin
         while ($row = mysqli_fetch_assoc($result)) {
             $name    = $row['name'];
             $img      = $row['image'];
+            
         }
         echo '  <header class="topbar " data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark" >

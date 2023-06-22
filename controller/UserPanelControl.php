@@ -19,6 +19,7 @@ class userPanel
             $Lname    = $row['Last_Name'];
             $fullName = $Fname . " " . $Lname;
             $img      = $row['image'];
+            $a="'../../.$img.'";
         }
         echo '  <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
@@ -76,11 +77,12 @@ class userPanel
 
                        <li>
                             <a class="profile-pic" href="./profile.php">
-                                <img src="../../'.$img.'" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">'.$fullName.'</span></a>
+                                <img src="../../'.$img.'" alt="" width="36" class="img-circle"><span class="text-white font-medium">'.$fullName.'</span></a>
+
+                                  
                         </li>
                        
-                       
+                   
                        
                         
                         <!-- ============================================================== -->

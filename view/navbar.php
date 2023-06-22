@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   // Check if the file was uploaded without any errors
   if ($fileError === 0) {
     // Specify the directory where you want to save the uploaded images
-    $uploadDirectory = './uploadImage/';
+    $uploadDirectory = '../uploadImage/';
     
     // Generate a unique name for the image by appending a timestamp
     $fileTimestamp = time();
