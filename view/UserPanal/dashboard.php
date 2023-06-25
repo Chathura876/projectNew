@@ -40,7 +40,7 @@ echo '
             <div class="lds-pos"></div>
         </div>
     </div>
-<!-- <img src="../../uploadImage/1685401734.jpg" alt=""> -->
+<!-- <img src="../../" alt=""> -->
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -54,6 +54,7 @@ $sideBar->getUserSideBar();
 
            
         echo'
+        <!-- <img src="../../" alt=""> -->
         <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">

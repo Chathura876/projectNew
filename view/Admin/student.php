@@ -4,7 +4,7 @@ require_once('../../controller/AdminPanelControl.php');
 
 include '../../php/connect.php';
 
-
+$admin=$_GET['AdminID'];
 
 ?>
 
@@ -136,109 +136,7 @@ include '../../php/connect.php';
 <!-- ===============================================Add Student Model================================= -->
 
 <!-- ============================Send Data to Database=========================== -->
-<?php
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  include '../../php/connect.php';
-  $FName = $_POST['FName'];
-  $LName = $_POST['LName'];
-  $address = $_POST['address'];
-  $mobile = $_POST['mobile'];
-  $school = $_POST['school'];
-  $UserName = $_POST['UserName'];
-  $password = $_POST['password'];
-  $BOD = $_POST['BOD'];
-  $sex = $_POST['sex'];
 
-  // ========select district===========
-  if(isset($_POST['district']))
-  {
-    $district = $_POST['district'];
-  }
-  else
-  {
-    $district = "NULL";
-  }
-
-  // ====================================
-
-  // =========select grade==============
-  if(isset($_POST['grade']))
-  {
-    $grade = $_POST['grade'];
-  }
-  else
-  {
-    $grade = "NULL";
-  }
-  // ========================================
-
-  // Get the file details
-  $fileName = $_FILES['img']['name']; // Name of the uploaded file
-  $fileTmpName = $_FILES['img']['tmp_name']; // Temporary location of the file
-  $fileSize = $_FILES['img']['size']; // Size of the file
-  $fileError = $_FILES['img']['error']; // Error code associated with the file upload
-  $fileType = $_FILES['img']['type']; // Type of the file
-
-  // Check if the file was uploaded without any errors
-  if ($fileError === 0) {
-    // Specify the directory where you want to save the uploaded images
-    $uploadDirectory = '../../uploadImage/';
-    
-    // Generate a unique name for the image by appending a timestamp
-    $fileTimestamp = time();
-    $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-    $fileDestination = $uploadDirectory . $fileTimestamp . '.' . $fileExtension;
-    
-    // Move the uploaded file to the specified destination
-    if (move_uploaded_file($fileTmpName, $fileDestination)) {
-      // File upload was successful
-      $filePath = $fileDestination;
-    } else {
-      // File upload failed
-      $filePath = "NULL";
-    }
-  } else {
-    // File upload encountered an error
-    $filePath = "NULL";
-  }
-
-  
-
-  $sql = "select * from student where UserName = '$UserName'";
-  $result = mysqli_query($con, $sql);
-  if($result)
-  {
-    $num = mysqli_num_rows($result);
-    if($num>0)
-    {
-      // echo '
-      // <script>
-      // alert("User Name already exist!");
-      // </script>
-      // ';
-    }
-    else
-    {
-      $sql = "INSERT INTO `student` (`stdID`, `Fist_Name`, `Last_Name`, `Address`, `district`, `mobile`, `sex`, `BOD`, `grade`, `school`, `UserName`, `password`, `image`, `timestamp`) VALUES (NULL, '$FName', '$LName', '$address', '$district', '$mobile', '$sex', '$BOD', '$grade', '$school', '$UserName', '$password', '$filePath', current_timestamp());";
-      $result = mysqli_query($con, $sql);
-      if($result)
-      {
-        echo '
-        <script>
-        alert("Your entry was submitted successfully!");
-        </script>
-        ';
-      }
-      else
-      {
-        die("Error". mysqli_error($con));
-      }
-    }
-  }
-}
-// ==========================End data Send Process======================
-?>
 
   
   <!--============= start add student Modal ===========================-->
@@ -253,7 +151,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
         <div class="modal-body">
 
-            <form method="POST"  enctype="multipart/form-data">
+            <form method="POST" action="../../model/admin/stdRegister.php" enctype="multipart/form-data">
                 <div class="container-fluid">
                 <div class="row">
                  <div class="col-6">
@@ -394,7 +292,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             </div>
       
               </div>
-            
+              <?php
+              echo '<input type="text" class="d-none" value='.$admin.' id="sds" name="admin">
+              
+              ';
+              ?>
+              
             
         <center>
                 <button type="submit" class="btn btn-success m-2" >Register</button>
@@ -425,7 +328,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
           </button>
         </div>
         <div class="modal-body-u">
-            <form method="POST" enctype="multipart/form-data">
+            <form action="../../controller/stdUp.php" method="POST" enctype="multipart/form-data" id="uploadFRM">
+             
+              <div class="getFRM">
                 <div class="container-fluid">
                 <div class="row">
                  <div class="col-6">
@@ -434,7 +339,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="form-group">
                   <label for="exampleInputEmail1">Fist Name :</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter Fist Name" autocomplete="off" name="uFName">
+                    placeholder="Enter Fist Name" autocomplete="off" name="fname">
                     
       
                 </div>
@@ -443,7 +348,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="form-group">
                   <label for="exampleInputEmail1">Last Name :</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" 
-                    placeholder="Enter Last Name" autocomplete="off" name="uLName">
+                    placeholder="Enter Last Name" autocomplete="off" name="lname">
                 
                 </div>
                 </div>
@@ -453,7 +358,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="form-group">
                   <label for="exampleInputEmail1">Address :</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" 
-                    placeholder="Enter Address " autocomplete="off" name="uaddress">
+                    placeholder="Enter Address " autocomplete="off" name="address">
                     </div>
             </div>
               
@@ -463,54 +368,54 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                   <div class="form-group">
                     <label for="exampleInputEmail1">Mobile :</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" 
-                      placeholder="Enter Mobile No " autocomplete="off" name="umobile">
+                      placeholder="Enter Mobile No " autocomplete="off" name="mobile">
                   </div>
                 </div>
                   <div class="col-6">
                     <div class="form-group">
                       <label for="exampleInputEmail1">School :</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" 
-                        placeholder="Enter School " autocomplete="off" name="uschool">
+                        placeholder="Enter School " autocomplete="off" name="school">
                     </div>
                   </div>
                   <div class="col-6">
                     <div class="form-group">
                       <label for="exampleInputEmail1">User Name :</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" 
-                        placeholder="Enter School " autocomplete="off" name="uUserName">
+                        placeholder="Enter School " autocomplete="off" name="username">
                     </div>
                   </div>
                     <div class="col-6">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Password :</label>
                         <input type="password" class="form-control" id="exampleInputEmail1" 
-                          placeholder="Enter School " autocomplete="off" name="upassword">
+                          placeholder="Enter School " autocomplete="off" name="password">
                       </div>
                     </div>
                   <div class="col-6">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Birthday :</label>
                       <input type="date" class="form-control" id="exampleInputEmail1" 
-                        placeholder="Enter School " autocomplete="off" name="uBOD">
+                        placeholder="Enter School " autocomplete="off" name="BOD">
                     </div>
                   </div>
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                       <div class="form-group m-2">
                         <label for="exampleInputEmail1">Image :</label>
                         <input type="file" class="form-control" id="exampleInputEmail1"
                           placeholder="Enter School " autocomplete="off" name="uimg">
                       </div>
-                    </div>
+                    </div> -->
               <div class="col-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Sex :</label>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="usex" id="inlineRadio1" value="male" />
+                    <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="male" />
                     <label class="form-check-label" for="inlineRadio1">Male</label>
                   </div>
               
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="usex" id="inlineRadio2" value="female" />
+                    <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="female" />
                     <label class="form-check-label" for="inlineRadio2">Female</label>
                   </div>
                 </div>
@@ -552,7 +457,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="col-6">
               <div class="form-group mb-2">
                 <label for="grade">Grade :</label>
-              <select name="ugrade" id="grade">
+              <select name="grade" id="grade">
                 <option value="Grade-6">Grade-6</option>
                 <option value="Grade-7">Grade-7</option>
                 <option value="Grade-6">Grade-8</option>
@@ -567,11 +472,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       
               </div>
             
-            
-        <center>
-                <button type="submit" class="btn btn-warning m-2" >Update</button>
+            </div>
+          </div>
+        <center> <input type="text" class="d-none" id="fill" name="fill">
+                 <input type="submit" class="btn btn-warning m-2" id="update" value="Update">
                 <button type="button" class="btn btn-dark" id="btnClose" data-dismiss="modal">Close</button></center>
-              </div>
+              
               </form>
         </div>
         <div class="modal-footer">
@@ -670,7 +576,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <td class="text-dark">'.$school.'</td>
 
                                     <td style="width: 200px;">
-                                        <button type="button" id="'.$reg.'" class="ubtn btn btn-warning"  >
+                                        <button type="button" id="'.$reg.'" class="ubtn btn btn-warning" name="ubtn" >
                                             Update
                                           </button>
                                          <a href="./student.php?AdminID='.$admin.'&D='.$reg.'" class="btn btn-danger text-light" onclick="deleteData()">Delete</a>
@@ -718,6 +624,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
+ 
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -759,29 +666,39 @@ function deleteData() {
   confirm("Are you sure delete this ?");
 }
 </script>
-<script>
-  $(document).ready(function(){
-    $('.ubtn').click(function(){
-   idStd=$(this).attr('id');
-   
-      $.ajax({url:"../../controller/select.php",
-        method:'post',
-        data:{std_id:idStd},
-        success: function(result){
-    $(".modal-body-u").html(result);
-  }});
-
-
-      $('#updateSTD').modal('show');
-    });
-
-    $('#btnClose').click(function(){
-      $('#updateSTD').modal('hide');
-    });
+<script>$(document).ready(function(){
+  $('.ubtn').click(function(){
+    var reg=$(this).attr('id');
+    $('#fill').val(reg);
+   $.post("../../model/admin/stdUpdate.php",
+   {
+    StdId:reg
+   },
+   function(data){
+    $('.getFRM').html(data);
+   }
+   );
+ 
+    $('#updateSTD').modal('show');
   });
-</script>
+
+
+  $('#btnClose').click(function(){
+    $('#updateSTD').modal('hide');
+  });
+});</script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- <script>
+  $(document).ready(function(){
+    $('#upbtn').click(function(){
+      upID=$(this).attr('id');
+      alert(upID);
+    });
+  }); -->
+<!-- </script> -->
 
 </body>
 

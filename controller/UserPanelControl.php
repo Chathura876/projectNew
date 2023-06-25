@@ -77,7 +77,7 @@ class userPanel
 
                        <li>
                             <a class="profile-pic" href="./profile.php">
-                                <img src="../../'.$img.'" alt="" width="36" class="img-circle"><span class="text-white font-medium">'.$fullName.'</span></a>
+                                <img src="../../uploadImage/'.$img.'" alt="" width="36" class="img-circle"><span class="text-white font-medium">'.$fullName.'</span></a>
 
                                   
                         </li>

@@ -43,21 +43,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $fileSize = $_FILES['img']['size']; // Size of the file
   $fileError = $_FILES['img']['error']; // Error code associated with the file upload
   $fileType = $_FILES['img']['type']; // Type of the file
-
+  
   // Check if the file was uploaded without any errors
   if ($fileError === 0) {
-    // Specify the directory where you want to save the uploaded images
-    $uploadDirectory = '../uploadImage/';
-    
-    // Generate a unique name for the image by appending a timestamp
-    $fileTimestamp = time();
+    // Get the file extension
     $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-    $fileDestination = $uploadDirectory . $fileTimestamp . '.' . $fileExtension;
-    
+  
+    // Generate a unique name for the image
+    $uniqueFileName = uniqid('img_', true) . '.' . $fileExtension;
+  
+    // Specify the directory where you want to save the uploaded images
+    $uploadDirectory = './uploadImage/';
+  
+    // Set the destination path including the unique file name
+    $fileDestination = $uploadDirectory . $uniqueFileName;
+  
     // Move the uploaded file to the specified destination
     if (move_uploaded_file($fileTmpName, $fileDestination)) {
       // File upload was successful
-      $filePath = $fileDestination;
+      $filePath = $uniqueFileName;
     } else {
       // File upload failed
       $filePath = "NULL";
@@ -66,6 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     // File upload encountered an error
     $filePath = "NULL";
   }
+  
 
   
 
@@ -288,14 +293,14 @@ echo '
         <div class="form-group mb-2">
           <label for="grade">Grade :</label>
         <select name="grade" id="grade">
-          <option value="Grade-6">Grade-6</option>
-          <option value="Grade-7">Grade-7</option>
-          <option value="Grade-6">Grade-8</option>
-          <option value="Grade-7">Grade-9</option>
-          <option value="Grade-6">Grade-10</option>
-          <option value="Grade-7">Grade-11</option>
-          <option value="Grade-6">Grade-12</option>
-          <option value="Grade-7">Grade-13</option>
+          <option value="6">Grade-6</option>
+          <option value="7">Grade-7</option>
+          <option value="8">Grade-8</option>
+          <option value="9">Grade-9</option>
+          <option value="10">Grade-10</option>
+          <option value="11">Grade-11</option>
+          <option value="12">Grade-12</option>
+          <option value="13">Grade-13</option>
         </select>
         </div>
       </div>
