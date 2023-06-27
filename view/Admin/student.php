@@ -576,10 +576,10 @@ $admin=$_GET['AdminID'];
                                     <td class="text-dark">'.$school.'</td>
 
                                     <td style="width: 200px;">
-                                        <button type="button" id="'.$reg.'" class="ubtn btn btn-warning" name="ubtn" >
-                                            Update
+                                        <button type="button" id="'.$reg.'" class="ubtn btn btn-warning ml-5" name="ubtn" >
+                                        <i class="fas fa-edit"></i>
                                           </button>
-                                         <a href="./student.php?AdminID='.$admin.'&D='.$reg.'" class="btn btn-danger text-light" onclick="deleteData()">Delete</a>
+                                         <a href="./student.php?AdminID='.$admin.'&D='.$reg.'" class="btn  text-danger" onclick="deleteData()"><i class="fa fa-trash" aria-hidden="true"></i> </a>
                                     </td>
                                   </tr>';
                                     

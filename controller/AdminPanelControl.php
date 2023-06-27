@@ -122,7 +122,7 @@ background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(
                         background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="student.php?AdminID='.$id.'"
                                 aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
+                               <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Student</span>
                             </a>
                         </li>
@@ -136,7 +136,7 @@ background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(
                         </li>
                         <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
                         background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./newClass.php?AdminID='.$id.'"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="class.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Class</span>
@@ -202,7 +202,82 @@ background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(
             ';
     }
 // ================================End===================================================
+function fillTeacherTable()
+{
+    include '../../php/connect.php';
+    $sql="select * from teacher";
+    $result=mysqli_query($con,$sql);
+    while($row=mysqli_fetch_assoc($result))
+    {
+      $Tid=$row['teacherID'];
+      $name=$row['name'];
+      $address=$row['address'];
+      $mobile=$row['mobile'];
+      $subject=$row['subject'];
+      $NIC=$row['NIC'];
+      $level=$row['level'];
+      $adminid = $_GET['AdminID'];
+
+
+        echo '<tr>
+        <td>'.$Tid.'</td>
+        <td>'.$name.'</td>
+        <td>'.$NIC.'</td>
+        <td>'.$address.'</td>
+        <td>'.$mobile.'</td>
+        <td>'.$subject.'</td>
+      
+        <td>'.$level.'</td>
+        <td><button class="btnUpdate btn btn-warning" id="'.$Tid.'"> <i class="fas fa-edit"></i> </button>
+        <a href="../Admin/teacher.php?AdminID='.$adminid.'& Tid='.$Tid.'" class="btnDelete btn text-danger" id="'.$Tid.'"><i class="fas fa-trash-alt"></i></a>
+        </td>
+      </tr>';
+    }
 }
+
+function RemoveTeacher()
+{
+    include '../../php/connect.php';
+    if(isset($_GET['Tid']))
+    {
+        $TeacherID=$_GET['Tid'];
+        $sql="DELETE FROM teacher WHERE `teacher`.`teacherID` =$TeacherID";
+        $result=mysqli_query($con,$sql);
+    }
+    
+}
+
+function getClassTable()
+{
+    include '../../php/connect.php';
+    $sql = "select * from class";
+    $result = mysqli_query($con, $sql);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $classID = $row['classID'];
+        $teacher = $row['teacherID'];
+        $subject = $row['subject'];
+        $grade = $row['grade'];
+        $title = $row['classTitel'];
+        $class = $row['className'];
+
+        echo '  <tr>
+        <td>' . $classID . '</td>
+        <td>' . $teacher . '</td>
+        <td>' . $subject . '</td>
+        <td>' . $title . '</td>
+        <td>' . $class . '</td>
+        <td>' . $grade . '</td>
+        <td>
+            <button class="btnUpdate btn btn-warning" id="' . $classID . '"> <i class="fas fa-edit"></i> </button>
+            <button class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+      </tr>';
+    }
+}
+
+}
+
 
 
 ?>

@@ -118,7 +118,7 @@ class Teacher
 
       echo '<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src='.$image.' class="img-fluid" alt="" style="width: 200px; height: 220px;">
+              <img src="./assets/img/trainers/'.$image.'" class="img-fluid" alt="" style="width: 200px; height: 220px;">
               <div class="member-content">
                 <h4>'.$Tname.'</h4>
                 <span>'.$subject.'</span>
