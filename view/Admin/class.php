@@ -1,7 +1,9 @@
 <?php
 include '../../php/connect.php';
 require_once('../../controller/AdminPanelControl.php');
-
+$admin=$_GET['AdminID'];
+$RemoveClass=new Admin();
+$RemoveClass->RemoveClass();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -28,6 +30,7 @@ require_once('../../controller/AdminPanelControl.php');
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -35,9 +38,222 @@ require_once('../../controller/AdminPanelControl.php');
 </head>
 
 <body>
+
     <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
+    <!--========================Add Class Modal Start ==================-->
     <!-- ============================================================== -->
+
+<div class="modal fade bd-example-modal-xl" aria-labelledby="myExtraLargeModalLabel"  aria-hidden="true" role="dialog" id="addClass">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Class</h5>
+        <button type="button" class="Aclose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- ======================Start Form=============================== -->
+        <form action="../../model/admin/addClass.php" method="POST" enctype="multipart/form-data">
+          <?PHP
+          echo '<input type="text" value="'.$admin.'" name="admin" class="d-none">';
+          ?>
+          
+            <div class="form-group">
+              <label for="exampleInputEmail1">Class Name</label>
+              <input type="text" class="form-control" placeholder="Class Name" name="className">
+             </div>
+
+             <div class="form-group">
+                <label for="exampleInputEmail1">Class Title</label>
+                <input type="text" class="form-control" placeholder="Class Title" name="classTitle">
+               </div>
+
+               <div class="form-group">
+                <label for="exampleInputEmail1">Subject</label>
+                <input type="text" class="form-control" placeholder="Class Subject" name="subject">
+               </div>
+
+               <div class="form-group mb-2 form-control">
+                <label for="grade">Grade :</label>
+              <select name="grade" id="grade" >
+                <option value="Grade-6">Grade-6</option>
+                <option value="Grade-7">Grade-7</option>
+                <option value="Grade-6">Grade-8</option>
+                <option value="Grade-7">Grade-9</option>
+                <option value="Grade-6">Grade-10</option>
+                <option value="Grade-7">Grade-11</option>
+                <option value="Grade-6">Grade-12</option>
+                <option value="Grade-7">Grade-13</option>
+              </select>
+              </div>
+              <div class="form-group mb-2 form-control">
+                <label for="grade">Teacher :</label>
+              <select name="teacher" id="teacher">
+                <option value="Grade-6">Rasika</option>
+                <option value="Grade-7">Janaka</option>
+                <option value="Grade-6">Jiwantha</option>
+          
+              </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+                <input type="text" class="form-control" placeholder="Description" name="des">
+               </div>
+
+               <div class="form-group">
+                <label for="exampleInputEmail1">Image</label>
+                <input type="file" class="form-control" placeholder="Image" name="img">
+               </div>
+
+               <div class="form-group mb-2 form-control">
+                <label for="grade">Level :</label>
+              <select name="level" id="level">
+                <option value="O/L">O/L</option>
+                <option value="A/L">A/L</option>
+              </select>
+              </div>
+              <div class="form-group mb-2 form-control">
+                <label for="grade">Type :</label>
+              <select name="type">
+                <option value="Normal">Normal</option>
+                <option value="popular">popular</option>
+              </select>
+              </div>
+            
+            <div class="form-group form-check">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Aclose">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+
+          <!-- =============================End form================== -->
+
+      </div>
+      <div class="modal-footer">
+      
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- ============================================================== -->
+    <!--========================Add Class Modal End ==================-->
+    <!-- ============================================================== -->
+
+
+    <!-- ============================================================== -->
+    <!--========================Update Class Modal Start ==================-->
+    <!-- ============================================================== -->
+
+    <div class="modal fade bd-example-modal-xl" aria-labelledby="myExtraLargeModalLabel"  aria-hidden="true" role="dialog" id="updateClass">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Class</h5>
+        <button type="button" id="Fclose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <!-- ======================Start Form=============================== -->
+        <form action="../../model/admin/UpdateClass.php" method="POST" enctype="multipart/form-data">
+          <?PHP
+          echo '<input type="text" value="'.$admin.'" name="admin" class="d-none">';
+          ?>
+           <div id="Mbody">
+
+           
+          
+            <div class="form-group">
+              <label for="exampleInputEmail1">Class Name</label>
+              <input type="text" class="form-control" placeholder="Class Name" name="className">
+             </div>
+
+             <div class="form-group">
+                <label for="exampleInputEmail1">Class Title</label>
+                <input type="text" class="form-control" placeholder="Class Title" name="classTitle">
+               </div>
+
+               <div class="form-group">
+                <label for="exampleInputEmail1">Subject</label>
+                <input type="text" class="form-control" placeholder="Class Subject" name="subject">
+               </div>
+
+               <div class="form-group mb-2 form-control">
+                <label for="grade">Grade :</label>
+              <select name="grade" id="grade" >
+                <option value="Grade-6">Grade-6</option>
+                <option value="Grade-7">Grade-7</option>
+                <option value="Grade-6">Grade-8</option>
+                <option value="Grade-7">Grade-9</option>
+                <option value="Grade-6">Grade-10</option>
+                <option value="Grade-7">Grade-11</option>
+                <option value="Grade-6">Grade-12</option>
+                <option value="Grade-7">Grade-13</option>
+              </select>
+              </div>
+              <div class="form-group mb-2 form-control">
+                <label for="grade">Teacher :</label>
+              <select name="teacher" id="teacher">
+                <option value="Grade-6">Rasika</option>
+                <option value="Grade-7">Janaka</option>
+                <option value="Grade-6">Jiwantha</option>
+          
+              </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+                <input type="text" class="form-control" placeholder="Description" name="des">
+               </div>
+
+               <div class="form-group">
+                <label for="exampleInputEmail1">Image</label>
+                <input type="file" class="form-control" placeholder="Image" name="img">
+               </div>
+
+               <div class="form-group mb-2 form-control">
+                <label for="grade">Level :</label>
+              <select name="level" id="level">
+                <option value="O/L">O/L</option>
+                <option value="A/L">A/L</option>
+              </select>
+              </div>
+              <div class="form-group mb-2 form-control">
+                <label for="grade">Type :</label>
+              <select name="type">
+                <option value="Normal">Normal</option>
+                <option value="popular">popular</option>
+              </select>
+              </div>
+            </div>
+           
+            <div class="form-group form-check">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Fclose">Close</button>
+                <button type="submit" class="btn btn-warning">Update</button>
+            </div>
+
+          </form>
+
+          <!-- =============================End form================== -->
+
+      </div>
+      <div class="modal-footer">
+      
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- ============================================================== -->
+    <!--========================Update Class Modal End ==================-->
+    <!-- ============================================================== -->
+
+
+
+
+
+
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -96,9 +312,13 @@ require_once('../../controller/AdminPanelControl.php');
                             <h3 class="box-title">Class Details</h3>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary" style="margin-left: 450px;">Add Class</button>
+                            <button class="btn btn-primary" style="margin-left: 450px;" id="Addbtn">Add Class</button>
                         </div>
                         </div>
+    <!-- ================================================================== -->
+    <!-- ============================Start table============================ -->
+        <!-- =============================================================== -->
+                        
                         <div class="row mt-5">
                             <div class="col-12">
                                 <table class="table table-hover">
@@ -124,6 +344,10 @@ require_once('../../controller/AdminPanelControl.php');
                                   </table>
                             </div>
                         </div>
+    <!-- ================================================================== -->
+    <!-- ============================End table============================ -->
+        <!-- =============================================================== -->
+
                         </div>
                     </div>
                 </div>
@@ -171,6 +395,45 @@ require_once('../../controller/AdminPanelControl.php');
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#Addbtn').click(function(){
+                $('#addClass').modal('show');
+            });
+
+            $('#Aclose').click(function(){
+                $('#addClass').modal('hide');
+            });
+
+            $('.Aclose').click(function(){
+                $('#addClass').modal('hide');
+            });
+
+            $('.btnUpdate').click(function(){
+
+              var cID=$(this).attr('id');
+              $('#updateClass').modal('show');
+              $.post(
+                "../../controller/showClass.php",
+                {
+                  id:cID
+                },
+                function(data){
+                  $('#Mbody').html(data);
+                }
+              );
+            });
+
+            $('#Fclose').click(function(){
+
+              $('#updateClass').modal('hide');
+            });
+
+
+        });
+    </script>
 </body>
 
 </html>

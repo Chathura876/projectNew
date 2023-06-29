@@ -260,6 +260,7 @@ function getClassTable()
         $grade = $row['grade'];
         $title = $row['classTitel'];
         $class = $row['className'];
+        $adminid = $_GET['AdminID'];
 
         echo '  <tr>
         <td>' . $classID . '</td>
@@ -270,10 +271,22 @@ function getClassTable()
         <td>' . $grade . '</td>
         <td>
             <button class="btnUpdate btn btn-warning" id="' . $classID . '"> <i class="fas fa-edit"></i> </button>
-            <button class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <a href="./class.php?AdminID='.$adminid.'& classID='.$classID.'" class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
         </td>
       </tr>';
     }
+}
+
+function RemoveClass()
+{
+    include '../../php/connect.php';
+    if(isset($_GET['classID']))
+    {
+        $classID=$_GET['classID'];
+        $sql="DELETE FROM class WHERE `class`.`classID` =$classID";
+        $result=mysqli_query($con,$sql);
+    }
+    
 }
 
 }
