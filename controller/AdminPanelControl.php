@@ -144,7 +144,7 @@ background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(
                         </li>
                         <li class="sidebar-item" style="border-right: 1px gray solid; background: rgb(1,0,8);
                         background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="lesson.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Lesson</span>
@@ -286,11 +286,43 @@ function RemoveClass()
         $sql="DELETE FROM class WHERE `class`.`classID` =$classID";
         $result=mysqli_query($con,$sql);
     }
-    
+     
+}
+
+
+
+function getLessonTable()
+{
+    include '../php/connect.php';
+    $sql="select * from lesson";
+    $result=mysqli_query($con,$sql);
+    while($row=mysqli_fetch_assoc($result))
+    {
+        $lessonID=$row['lessonID'];
+        $subID=$row['subID'];
+        $teacherID=$row['teacherID'];
+        $LessonTitle=$row['LessonTitle'];
+        $description=$row['description'];
+        $date=$row['date'];
+
+
+        echo ' <tr>
+        <th scope="row">'.$lessonID.'</th>
+        <td>'.$subID.'</td>
+        <td>'.$teacherID.'</td>
+        <td>'.$LessonTitle.'</td>
+        <td>'.$description.'</td>
+        <td>'.$date.'</td>
+  
+        <td>
+            <button class="upBtn" id="'.$lessonID.'"><i class="fa fa-edit" aria-hidden="true"></i></button>
+            <button class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+      </tr>';
+
+    }
 }
 
 }
-
-
 
 ?>

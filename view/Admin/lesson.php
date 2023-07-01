@@ -2,8 +2,6 @@
 include '../../php/connect.php';
 require_once('../../controller/AdminPanelControl.php');
 $admin=$_GET['AdminID'];
-$RemoveClass=new Admin();
-$RemoveClass->RemoveClass();
 
 ?>
 <!DOCTYPE html>
@@ -40,20 +38,22 @@ $RemoveClass->RemoveClass();
 
 <body>
 
-    <!-- ============================================================== -->
+
+
+   <!-- ============================================================== -->
     <!--========================Add Class Modal Start ==================-->
     <!-- ============================================================== -->
 
-<div class="modal fade bd-example-modal-xl" aria-labelledby="myExtraLargeModalLabel"  aria-hidden="true" role="dialog" id="addClass">
+    <div class="modal fade bd-example-modal-xl" aria-labelledby="myExtraLargeModalLabel"  aria-hidden="true" role="dialog" id="addClass">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add New Class</h5>
+        <h5 class="modal-title">Add New Lesson</h5>
         <button type="button" class="Aclose" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="mBody">
         <!-- ======================Start Form=============================== -->
         <form action="../../model/admin/addClass.php" method="POST" enctype="multipart/form-data">
           <?PHP
@@ -61,46 +61,53 @@ $RemoveClass->RemoveClass();
           ?>
           
             <div class="form-group">
-              <label for="exampleInputEmail1">Class Name</label>
-              <input type="text" class="form-control" placeholder="Class Name" name="className">
+              <label for="exampleInputEmail1">Subject</label>
+              <input type="text" class="form-control" placeholder="Subject" name="subject">
              </div>
 
+             
+            <div class="form-group">
+              <label for="exampleInputEmail1">Class ID</label>
+              <input type="text" class="form-control" placeholder="Class ID" name="classID">
+             </div>
+
+             <div class="form-group mb-2 form-control">
+              <label for="grade">Teacher :</label>
+            <select name="Teacher" id="teacher" >
+
+              <?php
+              $sql="select * from teacher";
+              $result=mysqli_query($con,$sql);
+              while($row=mysqli_fetch_assoc($result))
+              {
+                $id=$row['teacherID'];
+                $name=$row['name'];
+
+                echo '<option value="'.$name.'">'.$name.'</option>';
+              }
+
+
+              ?>
+              
+         
+            </select>
+            </div>
+
              <div class="form-group">
-                <label for="exampleInputEmail1">Class Title</label>
-                <input type="text" class="form-control" placeholder="Class Title" name="classTitle">
+                <label for="exampleInputEmail1">Lesson Title</label>
+                <input type="text" class="form-control" placeholder="Lesson Title" name="Lesson">
                </div>
 
                <div class="form-group">
-                <label for="exampleInputEmail1">Subject</label>
-                <input type="text" class="form-control" placeholder="Class Subject" name="subject">
+                <label for="exampleInputEmail1">Description</label>
+                <input type="text" class="form-control" placeholder="Description" name="subject">
                </div>
 
-               <div class="form-group mb-2 form-control">
-                <label for="grade">Grade :</label>
-              <select name="grade" id="grade" >
-                <option value="Grade-6">Grade-6</option>
-                <option value="Grade-7">Grade-7</option>
-                <option value="Grade-6">Grade-8</option>
-                <option value="Grade-7">Grade-9</option>
-                <option value="Grade-6">Grade-10</option>
-                <option value="Grade-7">Grade-11</option>
-                <option value="Grade-6">Grade-12</option>
-                <option value="Grade-7">Grade-13</option>
-              </select>
-              </div>
-              <div class="form-group mb-2 form-control">
-                <label for="grade">Teacher :</label>
-              <select name="teacher" id="teacher">
-                <option value="Grade-6">Rasika</option>
-                <option value="Grade-7">Janaka</option>
-                <option value="Grade-6">Jiwantha</option>
-          
-              </select>
-              </div>
+            
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Description</label>
-                <input type="text" class="form-control" placeholder="Description" name="des">
+                <label for="exampleInputEmail1">Date</label>
+                <input type="date" class="form-control" placeholder="Description" name="date">
                </div>
 
                <div class="form-group">
@@ -108,25 +115,15 @@ $RemoveClass->RemoveClass();
                 <input type="file" class="form-control" placeholder="Image" name="img">
                </div>
 
-               <div class="form-group mb-2 form-control">
-                <label for="grade">Level :</label>
-              <select name="level" id="level">
-                <option value="O/L">O/L</option>
-                <option value="A/L">A/L</option>
-              </select>
-              </div>
-              <div class="form-group mb-2 form-control">
-                <label for="grade">Type :</label>
-              <select name="type">
-                <option value="Normal">Normal</option>
-                <option value="popular">popular</option>
-              </select>
-              </div>
-            
-            <div class="form-group form-check">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Aclose">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
+               <div class="form-group">
+                <label for="exampleInputEmail1">Video</label>
+                <input type="file" class="form-control" placeholder="Image" name="video">
+               </div>
+
+               <div class="form-group">
+                <input type="submit" class="form-control bg-success text-light mb-2" value="Upload">
+              <button type="button" class="btn btn-dark form-control">Cloase</button>
+               </div>
           </form>
 
           <!-- =============================End form================== -->
@@ -143,118 +140,13 @@ $RemoveClass->RemoveClass();
     <!-- ============================================================== -->
 
 
+
+   
+
+
     <!-- ============================================================== -->
-    <!--========================Update Class Modal Start ==================-->
+    <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-
-    <div class="modal fade bd-example-modal-xl" aria-labelledby="myExtraLargeModalLabel"  aria-hidden="true" role="dialog" id="updateClass">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Update Class</h5>
-        <button type="button" id="Fclose" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" >
-        <!-- ======================Start Form=============================== -->
-        <form action="../../model/admin/UpdateClass.php" method="POST" enctype="multipart/form-data">
-          <?PHP
-          echo '<input type="text" value="'.$admin.'" name="admin" class="d-none">';
-          ?>
-           <div id="Mbody">
-
-           
-          
-            <div class="form-group">
-              <label for="exampleInputEmail1">Class Name</label>
-              <input type="text" class="form-control" placeholder="Class Name" name="className">
-             </div>
-
-             <div class="form-group">
-                <label for="exampleInputEmail1">Class Title</label>
-                <input type="text" class="form-control" placeholder="Class Title" name="classTitle">
-               </div>
-
-               <div class="form-group">
-                <label for="exampleInputEmail1">Subject</label>
-                <input type="text" class="form-control" placeholder="Class Subject" name="subject">
-               </div>
-
-               <div class="form-group mb-2 form-control">
-                <label for="grade">Grade :</label>
-              <select name="grade" id="grade" >
-                <option value="Grade-6">Grade-6</option>
-                <option value="Grade-7">Grade-7</option>
-                <option value="Grade-6">Grade-8</option>
-                <option value="Grade-7">Grade-9</option>
-                <option value="Grade-6">Grade-10</option>
-                <option value="Grade-7">Grade-11</option>
-                <option value="Grade-6">Grade-12</option>
-                <option value="Grade-7">Grade-13</option>
-              </select>
-              </div>
-              <div class="form-group mb-2 form-control">
-                <label for="grade">Teacher :</label>
-              <select name="teacher" id="teacher">
-                <option value="Grade-6">Rasika</option>
-                <option value="Grade-7">Janaka</option>
-                <option value="Grade-6">Jiwantha</option>
-          
-              </select>
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Description</label>
-                <input type="text" class="form-control" placeholder="Description" name="des">
-               </div>
-
-               <div class="form-group">
-                <label for="exampleInputEmail1">Image</label>
-                <input type="file" class="form-control" placeholder="Image" name="img">
-               </div>
-
-               <div class="form-group mb-2 form-control">
-                <label for="grade">Level :</label>
-              <select name="level" id="level">
-                <option value="O/L">O/L</option>
-                <option value="A/L">A/L</option>
-              </select>
-              </div>
-              <div class="form-group mb-2 form-control">
-                <label for="grade">Type :</label>
-              <select name="type">
-                <option value="Normal">Normal</option>
-                <option value="popular">popular</option>
-              </select>
-              </div>
-            </div>
-           
-            <div class="form-group form-check">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Fclose">Close</button>
-                <button type="submit" class="btn btn-warning">Update</button>
-            </div>
-
-          </form>
-
-          <!-- =============================End form================== -->
-
-      </div>
-      <div class="modal-footer">
-      
-      </div>
-    </div>
-  </div>
-</div>
-  <!-- ============================================================== -->
-    <!--========================Update Class Modal End ==================-->
-    <!-- ============================================================== -->
-
-
-
-
-
-
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -269,31 +161,36 @@ $RemoveClass->RemoveClass();
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-
-        <?php
-            $sideMenuObj=new Admin();
-             $sideMenuObj->getUserSideBar();        
-        ?>
-    
+      <?php
+      $sidebar=new Admin();
+      $sidebar->getUserSideBar();
+      
+      
+      ?>
+     
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Classes</h4>
+                        <h4 class="page-title">Lesson</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
-                            <a href="../../view/Admin/AdminLogin.php" target="_blank"
+                            <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
                         </div>
                     </div>
                 </div>
-                <!-- /.col-lg-12 -->
+            
+            </div>
+
+            <div class="container">
+             
             </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
@@ -309,49 +206,83 @@ $RemoveClass->RemoveClass();
                     <div class="col-md-12">
                         <div class="white-box">
                             <div class="row">
-                                <div class="col-6">
-                            <h3 class="box-title">Class Details</h3>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-primary" style="margin-left: 450px;" id="Addbtn">Add Class</button>
-                        </div>
-                        </div>
-    <!-- ================================================================== -->
-    <!-- ============================Start table============================ -->
-        <!-- =============================================================== -->
-                        
-                        <div class="row mt-5">
-                            <div class="col-12">
-                                <table class="table table-hover">
+                             <div class="col-6">
+                                <h3 class="box-title">Lesson - Details</h3>
+                             </div>
+                             <div class="col-6">
+                                <button class="btn btn-primary" id="Addbtn" style="margin-left: 350px;">Add Lesson</button>
+                             </div>
+                            </div>
+                          
+                            <div class="row mt-5">
+                             <div class="col-12">
+                                <table class="table">
                                     <thead class="thead-dark">
                                       <tr>
+                                        <th scope="col">LessonID</th>
+                                        <th scope="col">SubID</th>
+                                        <th scope="col">TeacherID</th>
                                         <th scope="col">ClassID</th>
-                                        <th scope="col">Teacher</th>
-                                        <th scope="col">Subject</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Class</th>
-                                       
-                                        <th scope="col">Grade</th>
+                                        <th scope="col">LessonTitle</th>
+                                        <th scope="col">Description</th>
+                                        
+                                        <th scope="col">Date</th>
                                         <th scope="col">Option</th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                    <?php
-                                    $TableData=new Admin();
-                                    $TableData->getClassTable();
-                                    ?>
-                                    
+                            <?php
+                            // $getTable=new Admin();
+                            // $getTable->getLessonTable();
+                            
+                            $sql="select * from lesson";
+                            $result=mysqli_query($con,$sql);
+                            while($row=mysqli_fetch_assoc($result))
+                            {
+                                $lessonID=$row['lessonID'];
+                                $subject=$row['subject'];
+                                $teacher=$row['teacher'];
+                                $LessonTitle=$row['LessonTitle'];
+                                $description=$row['description'];
+                                $date=$row['date'];
+                                $classID=$row['classID'];
+                        
+                        
+                                echo ' <tr>
+                                <th scope="row">'.$lessonID.'</th>
+                                <td>'.$subject.'</td>
+                                <td>'.$teacher.'</td>
+                                <td>'.$classID.'</td>
+                                <td>'.$LessonTitle.'</td>
+                                <td>'.$description.'</td>
+                                <td>'.$date.'</td>
+                          
+                                <td>
+                                    <button class="btn btn-warning upBtn" id="'.$lessonID.'"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                                    <button class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </td>
+                              </tr>';
+                            }
+                            ?>                                   
+                                     
+                                      
                                     </tbody>
                                   </table>
+                                  
+                                 
+                             </div>
                             </div>
-                        </div>
-    <!-- ================================================================== -->
-    <!-- ============================End table============================ -->
-        <!-- =============================================================== -->
-
+                           
                         </div>
                     </div>
+                
                 </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="change"></div>
+                  </div>
+                </div>
+              
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -386,6 +317,7 @@ $RemoveClass->RemoveClass();
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -397,9 +329,10 @@ $RemoveClass->RemoveClass();
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
 
+
+
     <script>
         $(document).ready(function(){
-
             $('#Addbtn').click(function(){
                 $('#addClass').modal('show');
             });
@@ -411,28 +344,24 @@ $RemoveClass->RemoveClass();
             $('.Aclose').click(function(){
                 $('#addClass').modal('hide');
             });
+           $('.upBtn').click(function(){
+            var lessonID=$(this).attr('id');
+            //$('#updateClass').modal('show');
+            $.post(
+              "../../controller/showLesson.php",
+              {id:lessonID},
+              function(data)
+              {
+                 $('.change').html(data);
+              }
+            );
 
-            $('.btnUpdate').click(function(){
+           });
+           $('#Fclose').click(function(){
 
-              var cID=$(this).attr('id');
-              $('#updateClass').modal('show');
-              $.post(
-                "../../controller/showClass.php",
-                {
-                  id:cID
-                },
-                function(data){
-                  $('#Mbody').html(data);
-                }
-              );
-            });
-
-            $('#Fclose').click(function(){
-
-              $('#updateClass').modal('hide');
-            });
-
-
+           $('#updateClass').modal('hide');
+});
+            
         });
     </script>
 </body>
