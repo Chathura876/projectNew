@@ -21,12 +21,9 @@ require_once('../../controller/TeacherPanelControl.php')
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
     <!-- Custom CSS -->
    <link href="css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 </head>
 
 <body>
@@ -87,65 +84,52 @@ require_once('../../controller/TeacherPanelControl.php')
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Student Details</h3>
-                            <p class="text-muted">Add class <code>.table</code></p>
+                  
+
+                            <div class="row">
+                                <div class="col-3">
+                                    <h3 class="box-title">Student Details</h3>
+                                </div>
+                                <div class="col-3">
+                                    <select name="grade" id="grade" class="form-control" title="Select Grade">
+                                        <option value="">Grade 6</option>
+                                        <option value="">Grade 7</option>
+                                        <option value="">Grade 8</option>
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <input type="text"  placeholder="Search" class="form-control" style="margin-left: 100px;">
+                                   
+                                </div>
+                                <div class="col-3">
+                                    <button class="btn " style="margin-left: 70px;" title="Search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                           
+                       <div class="white-box mt-5">
                             <div class="table-responsive">
-                                <table class="table text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th class="border-top-0">#</th>
-                                            <th class="border-top-0">First Name</th>
-                                            <th class="border-top-0">Last Name</th>
-                                            <th class="border-top-0">Username</th>
-                                            <th class="border-top-0">Role</th>
-                                        </tr>
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">stdID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Grade</th>
+                                        <th scope="col">School</th>
+                                        <th scope="col">Option</th>
+                                      </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Deshmukh</td>
-                                            <td>Prohaska</td>
-                                            <td>@Genelia</td>
-                                            <td>admin</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Deshmukh</td>
-                                            <td>Gaylord</td>
-                                            <td>@Ritesh</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sanghani</td>
-                                            <td>Gusikowski</td>
-                                            <td>@Govinda</td>
-                                            <td>developer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Roshan</td>
-                                            <td>Rogahn</td>
-                                            <td>@Hritik</td>
-                                            <td>supporter</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Joshi</td>
-                                            <td>Hickle</td>
-                                            <td>@Maruti</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nigam</td>
-                                            <td>Eichmann</td>
-                                            <td>@Sonu</td>
-                                            <td>supporter</td>
-                                        </tr>
+                                   <?php
+                                   $table=new Teacher();
+                                   $table->getStudentTable();
+                                   ?>
+                                     
                                     </tbody>
-                                </table>
+                                  </table>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -193,6 +177,8 @@ require_once('../../controller/TeacherPanelControl.php')
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+
+    
 </body>
 
 </html>

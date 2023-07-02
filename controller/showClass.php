@@ -39,24 +39,25 @@ if(isset($_POST['id']))
        <div class="form-group mb-2 form-control">
         <label for="grade">Grade :</label>
       <select name="grade" id="grade" >
-        <option value="Grade-6">Grade-6</option>
-        <option value="Grade-7">Grade-7</option>
-        <option value="Grade-6">Grade-8</option>
-        <option value="Grade-7">Grade-9</option>
-        <option value="Grade-6">Grade-10</option>
-        <option value="Grade-7">Grade-11</option>
-        <option value="Grade-6">Grade-12</option>
-        <option value="Grade-7">Grade-13</option>
+        <option value="6">Grade-6</option>
+        <option value="7">Grade-7</option>
+        <option value="8">Grade-8</option>
+        <option value="9">Grade-9</option>
+        <option value="10">Grade-10</option>
+        <option value="11">Grade-11</option>
+        <option value="12">Grade-12</option>
+        <option value="13">Grade-13</option>
       </select>
       </div>
       <div class="form-group mb-2 form-control">
         <label for="grade">Teacher :</label>
-      <select name="teacher" id="teacher">
-        <option value="Grade-6">Rasika</option>
-        <option value="Grade-7">Janaka</option>
-        <option value="Grade-6">Jiwantha</option>
+      <select name="teacher" id="teacher">';
+      
+      getOption();
+      
+    
   
-      </select>
+      echo'</select>
       </div>
       
       <div class="form-group">
@@ -88,6 +89,20 @@ if(isset($_POST['id']))
 
    
     ';
+  }
+}
+
+function getOption()
+{
+  include '../php/connect.php';
+  $sql="select * from teacher";
+  $result=mysqli_query($con,$sql);
+  while ($row=mysqli_fetch_assoc($result))
+  {
+    $name=$row['name'];
+    $teacherID=$row['teacherID'];
+
+    echo '<option value="'.$teacherID.'">'.$name.'</option>';
   }
 }
 

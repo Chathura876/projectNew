@@ -166,6 +166,131 @@ class Teacher
     }
 // ================================End===================================================
 
+function getProfile()
+{
+    include '../../php/connect.php';
+    $teacherID=$_GET['teacherID'];
+    $sql="select * from teacher where teacherID ='$teacherID'";
+    $result=mysqli_query($con,$sql);
+    while($row=mysqli_fetch_assoc($result))
+    {
+        $teacherID=$row['teacherID'];
+        $name=$row['name'];
+        $NIC=$row['NIC'];
+        $sex=$row['sex'];
+        $address=$row['address'];
+        $mobile=$row['mobile'];
+        $description=$row['description'];
+        $Univicity=$row['Univicity'];
+        $degree=$row['degree'];
+        $userName=$row['userName'];
+        $password=$row['password'];
+        $Timage=$row['Timage'];
+
+        echo ' <div class="white-box">
+        <div class="user-bg"> <img width="100%" alt="user" src="../../assets/img/trainers/'.$Timage.'">
+            <div class="overlay-box">
+                <div class="user-content">
+                    <a href="javascript:void(0)"><img src="../../assets/img/trainers/'.$Timage.'"
+                            class="thumb-lg img-circle" alt="img"></a>
+                    <h4 class="text-white mt-2">'.$userName.'</h4>
+                    <h5 class="text-white mt-2">'.$name.'</h5>
+                </div>
+            </div>
+        </div>
+        <div class="user-btm-box mt-5 d-md-flex">
+            <div class="col-md-6 col-sm-4 text-center">
+                <h2>Teacher ID :</h2>
+            </div>
+            <div class="col-md-6 col-sm-4 text-center">
+                <h2>'.$teacherID.'</h2>
+            </div>
+          
+        </div>
+    </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-8 col-xlg-9 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal form-material">
+                    <div class="form-group mb-4">
+                        <label class="col-md-12 p-0">Full Name</label>
+                        <div class="col-md-12 border-bottom p-0">
+                            <input type="text" value="'.$name.'"
+                                class="form-control p-0 border-0"> </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="example-email" class="col-md-12 p-0">Email</label>
+                        <div class="col-md-12 border-bottom p-0">
+                            <input type="text" value="'.$address.'"
+                                class="form-control p-0 border-0" name="example-email"
+                                id="example-email">
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="col-md-12 p-0">Password</label>
+                        <div class="col-md-12 border-bottom p-0">
+                            <input type="password" value="'.$password.'" class="form-control p-0 border-0">
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="col-md-12 p-0">Phone No</label>
+                        <div class="col-md-12 border-bottom p-0">
+                            <input type="text" value="'.$mobile.'"
+                                class="form-control p-0 border-0">
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="col-md-12 p-0">Description</label>
+                        <div class="col-md-12 border-bottom p-0">
+                            <textarea rows="5" class="form-control p-0 border-0" value="'.$description.'"></textarea>
+                        </div>
+                    </div>
+                 
+                    <div class="form-group mb-4">
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">Update Profile</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>';
+    }
+}
+
+
+function getStudentTable()
+{
+    include '../../php/connect.php';
+    $teacherID = $_GET['teacherID'];
+    $sql = "SELECT * FROM studentteacher WHERE teacherID = $teacherID";
+    $result = mysqli_query($con, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $stdID = $row["stdID"];
+
+        $sql = "SELECT * FROM student WHERE stdID = $stdID";
+        $result_student = mysqli_query($con, $sql);
+        $row_student = mysqli_fetch_assoc($result_student);
+
+        echo '<tr>
+                <td>'.$stdID.'</td>
+                <td>'.$row_student["Fist_Name"].'</td>
+                <td>'.$row_student["Address"].'</td>
+                <td>'.$row_student["sex"].'</td>
+                <td>'.$row_student["grade"].'</td>
+                <td>'.$row_student["school"].'</td>
+                <td>
+                    <button class="text-primary ml-2">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </td>
+              </tr>';
+    }
+}
+
 
 }
 

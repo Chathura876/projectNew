@@ -324,6 +324,34 @@ function getMyClass()
 }
 
 // =================================End==================================================
+
+
+
+function studentTeacher()
+{
+  include '../../php/connect.php'; 
+ $stdID=$_GET['stdID']; 
+ $classID=$_GET['classID'];
+ $sql="select * from class where classID = $classID";
+ $result=mysqli_query($con,$sql);
+ while($row=mysqli_fetch_assoc($result))
+ {
+     $teacherID=$row["teacherID"];
+ }
+
+
+ $sql="select * from studentteacher where stdID=$stdID and teacherID=$teacherID";
+ $result=mysqli_query($con,$sql);
+ $num=mysqli_num_rows($result);
+ 
+ if($num==0)
+ {
+    $sql="INSERT INTO `studentteacher` (`id`, `stdID`, `teacherID`) VALUES (NULL, '$stdID', '$teacherID');";
+    $result=mysqli_query($con,$sql);
+ }
+}
+
+
 }
 
 

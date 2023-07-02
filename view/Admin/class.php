@@ -91,9 +91,18 @@ $RemoveClass->RemoveClass();
               <div class="form-group mb-2 form-control">
                 <label for="grade">Teacher :</label>
               <select name="teacher" id="teacher">
-                <option value="Grade-6">Rasika</option>
-                <option value="Grade-7">Janaka</option>
-                <option value="Grade-6">Jiwantha</option>
+              <?php
+              $sql="select * from teacher";
+              $result=mysqli_query($con,$sql);
+              while ($row=mysqli_fetch_assoc($result))
+              {
+                $name=$row['name'];
+                $teacherID=$row['teacherID'];
+
+                echo '  <option value="'.$teacherID.'">'.$name.'</option>';
+              }
+              
+              ?>
           
               </select>
               </div>
@@ -197,9 +206,10 @@ $RemoveClass->RemoveClass();
               <div class="form-group mb-2 form-control">
                 <label for="grade">Teacher :</label>
               <select name="teacher" id="teacher">
-                <option value="Grade-6">Rasika</option>
-                <option value="Grade-7">Janaka</option>
-                <option value="Grade-6">Jiwantha</option>
+
+            
+              
+                
           
               </select>
               </div>

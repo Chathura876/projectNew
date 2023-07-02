@@ -4,6 +4,7 @@ include '../../php/connect.php';
 
   $save=new userPanel();
   $save->SaveMyClass();
+  $save->studentTeacher();
 
 
 echo '<!DOCTYPE html>
