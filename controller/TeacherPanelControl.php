@@ -15,13 +15,13 @@ class Teacher
             $name    = $row['name'];
             $img      = $row['Timage'];
         }
-        echo '  <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin6">
+        echo '  <header class="topbar" data-navbar style="background: linear-gradient(to bottom, #000066 10%, #000000 100%);" >
+            <nav class="navbar top-navbar navbar-expand-md " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+                <div class="navbar-header" data-logobg="skin6" >
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.php?stdID='.$id.'">
+                    <a class="navbar-brand" href="dashboard.php?stdID='.$id.'" style="background: linear-gradient(to bottom,#29293b 10%, #0e0e0e 100%);">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -30,7 +30,7 @@ class Teacher
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <h3 class="text-dark">New Samadhi</h3>
+                            <h3 class="text-light">New Samadhi</h3>
                             
                         </span>
                     </a>
@@ -46,7 +46,7 @@ class Teacher
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbar bg="skin5">
                    
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -69,9 +69,9 @@ class Teacher
                         <!-- ============================================================== -->
                        
 
-                       <li>
+                       <li >
                             <a class="profile-pic" href="./profile.php">
-                                <img src="../../'.$img.'" alt="user-img" width="36"
+                                <img src="../../assets/img/trainers/'.$img.'" alt="user-img" width="36"
                                     class="img-circle"><span class="text-white font-medium">'.$name.'</span></a>
                         </li>
                        
@@ -91,63 +91,63 @@ class Teacher
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
+        <aside class="left-sidebar" data-sidebarbg="skin6" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <nav class="sidebar-nav" >
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php?stdID='.$id.'"
+                        <li class="sidebar-item pt-2" style="background: linear-gradient(to bottom,#29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="dashboard.php?teacherID='.$id.'"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php?stdID='.$id.'"
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom,#29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="profile.php?teacherID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./myClasses_.php?stdID='.$id.'"
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="student.php?teacherID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">My Classes</span>
+                                <span class="hide-menu">Student</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./newClass.php?stdID='.$id.'"
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom,#29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="./class.php?teacherID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">New Classes</span>
+                                <span class="hide-menu">Classes</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="lesson.php?teacherID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span class="hide-menu">Lesson</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="note.php?teacherID='.$id.'"
+                                aria-expanded="false">
+                                <i class="fa fa-columns" aria-hidden="true"></i>
                                 <span class="hide-menu">Note</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
-                                aria-expanded="false">
-                                <i class="fa fa-columns" aria-hidden="true"></i>
-                                <span class="hide-menu">Payment</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="404.html"
                                 aria-expanded="false">
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 <span class="hide-menu">Error 404</span>
                             </a>
                         </li>
-                        <li class="text-center p-20 upgrade-btn">
+                        <li class="text-center p-20 upgrade-btn" style="background: linear-gradient(to bottom,#29293b 10%, #0e0e0e 100%);">
                             <a href="../../index.php"
                                 class="btn d-grid btn-danger text-white" >
                                 Sing Out</a>

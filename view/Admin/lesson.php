@@ -55,7 +55,7 @@ $admin=$_GET['AdminID'];
       </div>
       <div class="modal-body" id="mBody">
         <!-- ======================Start Form=============================== -->
-        <form action="../../model/admin/addClass.php" method="POST" enctype="multipart/form-data">
+        <form action="../../model/admin/addLesson.php" method="POST" enctype="multipart/form-data">
           <?PHP
           echo '<input type="text" value="'.$admin.'" name="admin" class="d-none">';
           ?>
@@ -65,7 +65,7 @@ $admin=$_GET['AdminID'];
               <input type="text" class="form-control" placeholder="Subject" name="subject">
              </div>
 
-             
+            
             <div class="form-group">
               <label for="exampleInputEmail1">Class ID</label>
               <input type="text" class="form-control" placeholder="Class ID" name="classID">
@@ -89,7 +89,7 @@ $admin=$_GET['AdminID'];
 
               ?>
               
-         
+      
             </select>
             </div>
 
@@ -100,7 +100,7 @@ $admin=$_GET['AdminID'];
 
                <div class="form-group">
                 <label for="exampleInputEmail1">Description</label>
-                <input type="text" class="form-control" placeholder="Description" name="subject">
+                <input type="text" class="form-control" placeholder="Description" name="des">
                </div>
 
             
@@ -122,7 +122,7 @@ $admin=$_GET['AdminID'];
 
                <div class="form-group">
                 <input type="submit" class="form-control bg-success text-light mb-2" value="Upload">
-              <button type="button" class="btn btn-dark form-control">Cloase</button>
+              <button type="button" class="btn btn-dark form-control">Close</button>
                </div>
           </form>
 
@@ -279,7 +279,15 @@ $admin=$_GET['AdminID'];
                 </div>
                 <div class="row mt-3">
                   <div class="col-12">
+                    <button type="button" class="btn-close mb-3" id="hideD"  aria-label="Close"></button>
+                    <form action="../../model/admin/updateLesson.php" method="POST" enctype="multipart/form-data">
+                      <?php
+                      echo '<input type="text" name="admin" value="'.$admin.'" class="d-none">';
+                      
+                      ?>
+                      
                     <div class="change"></div>
+                  </form>
                   </div>
                 </div>
               
@@ -360,7 +368,11 @@ $admin=$_GET['AdminID'];
            $('#Fclose').click(function(){
 
            $('#updateClass').modal('hide');
-});
+          });
+
+           $('#hideD').click(function(){
+           $('.change').text('');
+           });  
             
         });
     </script>
