@@ -123,7 +123,7 @@ class Teacher
                             <a class="sidebar-link waves-effect waves-dark sidebar-link text-light" href="./class.php?teacherID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Classes</span>
+                                <span class="hide-menu">My Classes</span>
                             </a>
                         </li>
                         <li class="sidebar-item" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
@@ -283,7 +283,7 @@ function getStudentTable()
                 <td>'.$row_student["grade"].'</td>
                 <td>'.$row_student["school"].'</td>
                 <td>
-                    <button class="text-primary ml-2">
+                    <button class="viewBtn text-primary ml-2" id="'.$stdID.'">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </button>
                 </td>

@@ -23,10 +23,49 @@ require_once('../../controller/TeacherPanelControl.php')
    <link href="css/style.min.css" rel="stylesheet">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
 <body>
+   <!-- ==========================================view student============================================= -->
+   <div class="modal" tabindex="-1" role="dialog" id="viewModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Student Details</h5>
+        <button type="button" class="Uclose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="mBody">
+        <!-- ==========================form start-======================================== -->
+        <form>
+            <div class="form-group">
+              <label for="">Student ID :</label>
+              <input type="text" class="form-control" id=""  placeholder="Enter email">
+           
+            </div>
+            <div class="form-group">
+              <label for="">Password :</label>
+              <input type="text" class="form-control" id="" placeholder="Password">
+            </div>
+          
+           
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -177,6 +216,31 @@ require_once('../../controller/TeacherPanelControl.php')
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+  
+
+<script>
+$(document).ready(function(){
+    $('.viewBtn').click(function(){
+        var id = $(this).attr('id');
+       $('#viewModal').modal('show');
+       $.post(
+        "../../controller/viewStudent.php",
+        {stdID:id},
+        function(data){
+
+            $('#mBody').html(data);
+        }
+       );
+    });
+
+    $('.Ucloser').click(function(){
+        $('#viewModal').modal('hide');
+    });
+    $('#close').click(function(){
+        $('#viewModal').modal('hide');
+    });
+});
+</script>
 
     
 </body>
