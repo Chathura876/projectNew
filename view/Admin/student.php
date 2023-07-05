@@ -591,7 +591,7 @@ $admin=$_GET['AdminID'];
                                      
                                     </tbody>
                                   </table>
-                                
+                                <a href="../../controller/generate_report.php" class="btn btn-primary">report</a>
                             </div>
                         </div>
                     </div>

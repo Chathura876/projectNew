@@ -54,7 +54,7 @@ class Classes
        
          
             <div class="col-md-4 course-item m-5" style="width: 300px;">
-              <img src='.$image.' class="img-fluid" alt='.$className.' style="width: 300px; height: 300px;">
+              <img src="./assets/img/class/'.$image.'" class="img-fluid" alt='.$className.' style="width: 300px; height: 300px;">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>'.$className.'</h4>

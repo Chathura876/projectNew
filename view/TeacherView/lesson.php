@@ -55,7 +55,7 @@ $teacherID=$_GET["teacherID"];
       </div>
       <div class="modal-body" id="mBody">
         <!-- ======================Start Form=============================== -->
-        <form action="../../model/admin/addLesson.php" method="POST" enctype="multipart/form-data">
+        <form action="../../model/Teacher/addLesson.php" method="POST" enctype="multipart/form-data">
          
           
             <div class="form-group">
@@ -69,27 +69,7 @@ $teacherID=$_GET["teacherID"];
               <input type="text" class="form-control" placeholder="Class ID" name="classID">
              </div>
 
-             <div class="form-group mb-2 form-control">
-              <label for="grade">Teacher :</label>
-            <select name="Teacher" id="teacher" >
-
-              <?php
-              $sql="select * from teacher";
-              $result=mysqli_query($con,$sql);
-              while($row=mysqli_fetch_assoc($result))
-              {
-                $id=$row['teacherID'];
-                $name=$row['name'];
-
-                echo '<option value="'.$name.'">'.$name.'</option>';
-              }
-
-
-              ?>
-              
-      
-            </select>
-            </div>
+           
 
              <div class="form-group">
                 <label for="exampleInputEmail1">Lesson Title</label>
@@ -117,7 +97,10 @@ $teacherID=$_GET["teacherID"];
                 <label for="exampleInputEmail1">Video</label>
                 <input type="file" class="form-control" placeholder="Image" name="video">
                </div>
-
+               <?php
+               echo '
+               <input type="text" value="'.$teacherID.'" name="teacherID">';
+              ?>
                <div class="form-group">
                 <input type="submit" class="form-control bg-success text-light mb-2" value="Upload">
               <button type="button" class="btn btn-dark form-control">Close</button>
@@ -233,7 +216,7 @@ $teacherID=$_GET["teacherID"];
                             // $getTable=new Admin();
                             // $getTable->getLessonTable();
                             
-                            $sql="select * from lesson";
+                            $sql="select * from lesson where teacher=$teacherID";
                             $result=mysqli_query($con,$sql);
                             while($row=mysqli_fetch_assoc($result))
                             {
@@ -256,8 +239,8 @@ $teacherID=$_GET["teacherID"];
                                 <td>'.$date.'</td>
                           
                                 <td>
-                                    <button class="btn btn-warning upBtn" id="'.$lessonID.'"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                                    <button class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    <button class="btn btn-warning upBtn" id="'.$lessonID.'"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    
                                 </td>
                               </tr>';
                             }
@@ -278,7 +261,12 @@ $teacherID=$_GET["teacherID"];
                 <div class="row mt-3">
                   <div class="col-12">
                     <button type="button" class="btn-close mb-3" id="hideD"  aria-label="Close"></button>
-                    <form action="../../model/admin/updateLesson.php" method="POST" enctype="multipart/form-data">
+                    <form action="../../model/Teacher/updateLesson.php?" method="POST" enctype="multipart/form-data">
+                     
+                      <?php
+                      echo ' <input type="text" value="'.$teacherID.'" name="teacherID" class="d-none">';
+                      
+                      ?>
                       <?php
                 
                       

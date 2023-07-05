@@ -205,7 +205,7 @@ function GetNewClass()
         
         <div class="col-md-4">
         <div class="card mt-3" style="width: 18rem;">
-        <img class="card-img-top" src="../../' . $image . '" alt="Card image cap" style="width: 300px; height: 300px;">
+        <img class="card-img-top" src="../assets/img/class/img_649bd976407043.43860741.jpg" alt="Card image cap" style="width: 300px; height: 300px;">
         <div class="card-body">
           <h3 class="card-title">' . $className . '</h3>
           <p class="card-text">' . $des . '</p>
@@ -311,7 +311,7 @@ function getMyClass()
     echo ' <div class="col-md-4 col-sm-12 mt-3">
     <div class="card" style="width: 18rem;">
 
-        <img class="card-img-top" src="../../'.$image.'" alt="Card image cap"  style="width: 300px; height: 300px;">
+        <img class="card-img-top" src="../../assets/img/class/'.$image.'" alt="Card image cap"  style="width: 300px; height: 300px;">
 
         <div class="card-body">
           <h5 class="card-title">'.$className.'</h5>

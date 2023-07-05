@@ -132,26 +132,57 @@ include './view/navbar.php';
       <div class="container">
 
         <div class="row counters">
+            <?php
+              $sql="select * from student";
+              $result=mysqli_query($con,$sql);
+              $num=mysqli_num_rows($result);
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Students</p>
-          </div>
+              echo ' <div class="col-lg-3 col-6 text-center">
+              <span data-purecounter-start="0" data-purecounter-end="'.$num.'" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Students</p>
+            </div>';
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Teachers</p>
-          </div>
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Classes</p>
-          </div>
+              ?>
+         
+              <?php
+              $sql="select * from teacher";
+              $result=mysqli_query($con,$sql);
+              $num=mysqli_num_rows($result);
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Lessons</p>
-          </div>
+              echo '<div class="col-lg-3 col-6 text-center">
+              <span data-purecounter-start="0" data-purecounter-end="'.$num.'" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Teachers</p>
+            </div>';
+              
+              
+              ?>
+          
+           <?php
+           $sql="select * from class";
+           $result=mysqli_query($con,$sql);
+           $num=mysqli_num_rows($result);
+
+           echo '  <div class="col-lg-3 col-6 text-center">
+           <span data-purecounter-start="0" data-purecounter-end="'.$num.'" data-purecounter-duration="1" class="purecounter"></span>
+           <p>Classes</p>
+         </div>';
+           
+           ?>
+        
+          <?php
+          $sql="select * from lesson";
+          $result=mysqli_query($con,$sql);
+          $num=mysqli_num_rows($result);
+        
+
+          echo '   <div class="col-lg-3 col-6 text-center">
+          <span data-purecounter-start="0" data-purecounter-end="'.$num.'" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Lessons</p>
+        </div>';
+          
+          ?>
+       
 
         </div>
 

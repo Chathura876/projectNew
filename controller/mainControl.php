@@ -27,7 +27,7 @@ class Home
     public function getClass()
     {
         include './php/connect.php';
-        $sql = "select cTB.*,tTB.Timage from class cTB,teacher tTB where cTB.type='Popular' and tTB.teacherID=cTB.teacherID";
+        $sql = "select cTB.*,tTB.Timage from class cTB,teacher tTB where cTB.type='popular' and tTB.teacherID=cTB.teacherID";
         $result=mysqli_query($con,$sql);
     while ($row = mysqli_fetch_assoc($result))
     {
@@ -42,7 +42,7 @@ class Home
       echo '
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="course-item">
-              <img src='.$image.' class="img-fluid" alt='.$className.' style="width: 300px;">
+              <img src="./assets/img/class/'.$image.'" class="img-fluid" alt='.$className.' style="width: 300px;">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>'.$className.'</h4>
@@ -163,7 +163,7 @@ echo '
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src='.$image.' class="testimonial-img" alt="">
+              <img src="./uploadImage/'.$image.'" class="testimonial-img" alt="">
               <h3>'.$fullName.'</h3>
               <h4> Our Student</h4>
               <p>

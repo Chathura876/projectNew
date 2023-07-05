@@ -73,7 +73,7 @@ $admin=$_GET['AdminID'];
 
              <div class="form-group mb-2 form-control">
               <label for="grade">Teacher :</label>
-            <select name="Teacher" id="teacher" >
+            <select name="teacher" id="teacher" >
 
               <?php
               $sql="select * from teacher";
@@ -83,7 +83,7 @@ $admin=$_GET['AdminID'];
                 $id=$row['teacherID'];
                 $name=$row['name'];
 
-                echo '<option value="'.$name.'">'.$name.'</option>';
+                echo '<option value="'.$id.'">'.$name.'</option>';
               }
 
 

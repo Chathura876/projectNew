@@ -222,7 +222,7 @@ function getProfile()
                                 class="form-control p-0 border-0"> </div>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="example-email" class="col-md-12 p-0">Email</label>
+                        <label for="example-email" class="col-md-12 p-0">Address</label>
                         <div class="col-md-12 border-bottom p-0">
                             <input type="text" value="'.$address.'"
                                 class="form-control p-0 border-0" name="example-email"
