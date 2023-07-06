@@ -298,8 +298,8 @@ $RemoveClass->RemoveClass();
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
-                            <a href="../../view/Admin/AdminLogin.php" target="_blank"
-                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
+                            <a href="../../controller/generate_report_class.php" target="_blank"
+                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Report Generate</a>
                         </div>
                     </div>
                 </div>
@@ -323,7 +323,7 @@ $RemoveClass->RemoveClass();
                             <h3 class="box-title">Class Details</h3>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary" style="margin-left: 450px;" id="Addbtn">Add Class</button>
+                            <button class="btn btn-dark" style="margin-left: 450px;" id="Addbtn">Add Class</button>
                         </div>
                         </div>
     <!-- ================================================================== -->
@@ -333,16 +333,16 @@ $RemoveClass->RemoveClass();
                         <div class="row mt-5">
                             <div class="col-12">
                                 <table class="table table-hover">
-                                    <thead class="thead-dark">
+                                <thead class="thead" style="background-color:#efd386;">
                                       <tr>
-                                        <th scope="col">ClassID</th>
-                                        <th scope="col">Teacher</th>
-                                        <th scope="col">Subject</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Class</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">ClassID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Teacher</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Subject</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Title</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Class</th>
                                        
-                                        <th scope="col">Grade</th>
-                                        <th scope="col">Option</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Grade</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Option</th>
                                       </tr>
                                     </thead>
                                     <tbody>

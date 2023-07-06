@@ -27,7 +27,7 @@ class userPanel
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.php?stdID='.$id.'" style="background: linear-gradient(to top, #003399 18%, #003300 84%);">
+                    <a class="navbar-brand" href="dashboard.php?stdID='.$id.'" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -36,7 +36,7 @@ class userPanel
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <h3 class="text-light">New Samadhi</h3>
+                            <h3 class="text-light">Newසමාධි</h3>
                             
                         </span>
                     </a>
@@ -52,7 +52,7 @@ class userPanel
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="background: linear-gradient(to top, #003399 18%, #003300 84%);">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                    
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -98,7 +98,7 @@ class userPanel
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" style="background: linear-gradient(to top, #003399 18%, #003300 84%);">
+        <aside class="left-sidebar" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->

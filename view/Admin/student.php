@@ -87,8 +87,8 @@ $admin=$_GET['AdminID'];
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal text-dark">Dashboard</a></li>
                             </ol>
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
-                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
+                            <a href="../../controller/generate_report.php" target="_blank"
+                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Report Generate</a>
                         </div>
                     </div>
                 </div>
@@ -503,7 +503,7 @@ $admin=$_GET['AdminID'];
 
 <!-- ===================================== End Delete Proccess ======================== -->
                                 <div class="col-4">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddSTD" style="margin-left: 250px;">
+                                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#AddSTD" style="margin-left: 250px;">
                                         Add Student
                                       </button>
                            
@@ -515,16 +515,16 @@ $admin=$_GET['AdminID'];
                           
                             <div class="table-responsive">
                                 <table class="table table-hover bg-light mt-5" id="tb">
-                                    <thead>
+                                <thead class="thead" style="background-color:#efd386;">
                                       <tr>
-                                        <th class="text-dark">Reg No</th>
-                                        <th class="text-dark">Fist Name</th>
-                                        <th class="text-dark">Last Name</th>
-                                        <th class="text-dark">Address</th>
-                                        <th class="text-dark">Grade</th>
-                                        <th class="text-dark">Mobile</th>
-                                        <th class="text-dark">School</th>
-                                        <th class="text-dark">Option</th>
+                                        <th style="font-weight: bold; color: black;">Reg No</th>
+                                        <th style="font-weight: bold; color: black;">Fist Name</th>
+                                        <th style="font-weight: bold; color: black;">Last Name</th>
+                                        <th style="font-weight: bold; color: black;">Address</th>
+                                        <th style="font-weight: bold; color: black;">Grade</th>
+                                        <th style="font-weight: bold; color: black;">Mobile</th>
+                                        <th style="font-weight: bold; color: black;">School</th>
+                                        <th style="font-weight: bold; color: black;">Option</th>
 
                                       </tr>
                                     </thead>
@@ -576,7 +576,7 @@ $admin=$_GET['AdminID'];
                                     <td class="text-dark">'.$school.'</td>
 
                                     <td style="width: 200px;">
-                                        <button type="button" id="'.$reg.'" class="ubtn btn btn-warning ml-5" name="ubtn" >
+                                        <button type="button" id="'.$reg.'" class="ubtn btn  ml-5" name="ubtn" >
                                         <i class="fas fa-edit"></i>
                                           </button>
                                          <a href="./student.php?AdminID='.$admin.'&D='.$reg.'" class="btn  text-danger" onclick="deleteData()"><i class="fa fa-trash" aria-hidden="true"></i> </a>
@@ -591,7 +591,7 @@ $admin=$_GET['AdminID'];
                                      
                                     </tbody>
                                   </table>
-                                <a href="../../controller/generate_report.php" class="btn btn-primary">report</a>
+                                
                             </div>
                         </div>
                     </div>

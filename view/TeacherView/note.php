@@ -139,12 +139,14 @@ $teacherID=$_GET["teacherID"];
                     <div class="row">
                         <div class="col-12">
                             <table class="table">
-                                <thead>
+                            <thead class="thead" style="background-color:#efd386;">
                                   <tr>
-                                    <th scope="col">ClassID</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col" style="font-weight: bold; color: black;">ClassID</th>
+                                    <th scope="col" style="font-weight: bold; color: black;">Title</th>
                                 
-                                    <th scope="col">Date</th>
+                                    <th scope="col" style="font-weight: bold; color: black;">Date</th>
+                                    <th scope="col" style="font-weight: bold; color: black;">Option</th>
+                                    
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -160,6 +162,11 @@ $teacherID=$_GET["teacherID"];
                                         <td>'.$classID.'</td>
                                         <td>'.$noteTitle.'</td>
                                         <td>'.$date.'</td>
+                                        <td>
+                                            <button class="text-dark"><i class="fa fa-edit" aria-hidden="true"></i></button>
+
+                                     
+                                        </td>
                                       
                                       </tr>';
 

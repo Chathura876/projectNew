@@ -119,7 +119,7 @@ echo '
 <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header  bg-danger text-light">
+      <div class="modal-header   text-light" style="background: linear-gradient(to bottom, #000066 16%, #003399 100%);">
         <h5 class="modal-title" id="exampleModalLabel">Login</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -139,7 +139,7 @@ echo '
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off" name="UPassword">
           </div>
           
-          <button type="submit" class="btn btn-dark m-3">Login</button>
+          <button type="submit" class="btn btn-primary m-3">Login</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </form>
 
@@ -157,7 +157,7 @@ echo '
   aria-hidden="true" >
   <div class="modal-dialog modal-xl " role="document" >
     <div class="modal-content">
-      <div class="modal-header  bg-success text-light">
+      <div class="modal-header  text-light" style="background: linear-gradient(to bottom, #000066 16%, #003399 100%);">
         <h2 class="modal-title" id="exampleModalLabel"> Register</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -309,7 +309,7 @@ echo '
       
       
   <center>
-          <button type="submit" class="btn btn-success m-2" >Register</button>
+          <button type="submit" class="btn btn-primary m-2"  >Register</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></center>
         </div>
         </form>
@@ -324,19 +324,19 @@ echo '
 
 
 <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top bg-danger  ">
-    <div class="container d-flex align-items-center">
+  <header id="header" class="fixed-top  " style=" background: linear-gradient(to bottom, #000000 16%, #000099 100%);">
+    <div class="container-fluid d-flex align-items-center">
 
-      <h1 class="logo me-auto "><a href="index.html" class="text-light">Newසමාධි</a></h1>
+      <h1 class="logo me-auto " style="margin-left: 60px;"><a href="index.html" class="text-light">Newසමාධි</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="./assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0  ">
         <ul class="text-light">
-          <li><a class="active text-light" href="index.php">Home</a></li>
-          <li><a href="grade.php" class="text-light">Classes</a></li>
-          <li><a href="trainers.php" class="text-light">Teacher</a></li>
-          <li><a href="events.php" class="text-light">Events</a></li>
+          <li><a class="active text-light" href="index.php" style="font-size: 18px;">Home</a></li>
+          <li><a href="grade.php" class="text-light" style="font-size: 18px;">Classes</a></li>
+          <li><a href="trainers.php" class="text-light" style="font-size: 18px;">Teacher</a></li>
+          <li><a href="events.php" class="text-light" style="font-size: 18px;"> Events</a></li>
           <!-- <li><a href="pricing.php" class="text-light">Pricing</a></li> -->
 
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -356,15 +356,15 @@ echo '
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> -->
-          <li><a href="about.php" class="text-light">About</a></li>
-          <li><a href="contact.php"class="text-light">Contact</a></li>
+          <li><a href="about.php" class="text-light" style="font-size: 18px;">About</a></li>
+          <li><a href="contact.php"class="text-light" style="font-size: 18px;">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle text-light bg-danger"></i>
       </nav><!-- .navbar -->
-
-      <button class="btn btn-primary get-started-btn" target="_blank" data-toggle="modal" data-target="#RegisterModal" style="background-color:rgb(30, 132, 180);">Register</button>
-      <button class="get-started-btn btn-light  m-2" target="_blank" data-toggle="modal" data-target="#LoginModal" style="background-color:white; color:black;">Login</button>
-
+<div style="margin-left: 200px;">
+      <button class="btn btn-primary get-started-btn" target="_blank" data-toggle="modal" data-target="#RegisterModal" style=" background: linear-gradient(to bottom, #0099ff 16%, #000099 100%);" ><b>Register</b></button>
+      <button class="get-started-btn btn-light  m-2" target="_blank" data-toggle="modal" data-target="#LoginModal" style="background-color:white; color:black;"><b>Login</b></button>
+    </div>
     </div>
   </header>';
 

@@ -404,8 +404,8 @@ $admin=$_GET['AdminID'];
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
-                            <a href="../../view/Admin/AdminLogin.php" target="_blank"
-                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
+                            <a href="../../controller/generate_report_teacher.php" target="_blank"
+                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Report Generate</a>
                         </div>
                     </div>
                 </div>
@@ -426,27 +426,27 @@ $admin=$_GET['AdminID'];
                         <div class="white-box">
                             <div class="row">
                             <div class="col-6">
-                            <h3 class="box-title" style="margin-left: 50px;">Teacher Details</h3>
+                            <h3 class="box-title" style="margin-left: 25px; font-size: 23px;">Teacher Details</h3>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary" style="margin-left: 400px;" id="Add">Add Teacher</button>
+                            <button class="btn btn-dark text-light" style="margin-left: 440px; font-weight: bold;" id="Add">Add Teacher</button>
                         </div>
                         </div>
                         <div class="row mt-5">
                             <div class="container-fluid">
                                 <div class="col-12">
                                     <table class="table table-hover">
-                                        <thead class="thead-dark">
-                                          <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">NIC</th>
-                                            <th scope="col">Address</th>
-                                            <th scope="col">Mobile </th>
-                                             <th scope="col">Subject</th>
+                                        <thead class="thead" style="background-color:#efd386;">
+                                          <tr style="color: black; font-weight: bold;">
+                                            <th scope="col"  bold; color: blacstyle="font-weight:k;">ID</th>
+                                            <th scope="col" style="font-weight: bold; color: black;">Name</th>
+                                            <th scope="col" style="font-weight: bold; color: black;">NIC</th>
+                                            <th scope="col" style="font-weight: bold; color: black;">Address</th>
+                                            <th scope="col" style="font-weight: bold; color: black;">Mobile </th>
+                                             <th scope="col" style="font-weight: bold; color: black;">Subject</th>
                                           
-                                            <th scope="col">Level</th>
-                                            <th scope="col">Option</th>
+                                            <th scope="col" style="font-weight: bold; color: black;">Level</th>
+                                            <th scope="col" style="font-weight: bold; color: black;">Option</th>
                                           </tr>
                                         </thead>
                                         <tbody>

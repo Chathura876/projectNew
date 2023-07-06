@@ -17,10 +17,9 @@ class Admin
             $img      = $row['image'];
             
         }
-        echo '  <header class="topbar " data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark" >
-                <div class="navbar-header bg-dark " data-logobg="skin6" style="background: rgb(1,0,8);
-                background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+        echo '  <header class="topbar "  style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+            <nav class="navbar top-navbar navbar-expand-md " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+                <div class="navbar-header " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
@@ -33,7 +32,7 @@ class Admin
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <h4 class="text-light">New Samadhi</h4>
+                            <h4 class="text-light">Newසමාධි</h4>
                             
                         </span>
                     </a>
@@ -49,7 +48,7 @@ class Admin
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse " id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse " id="navbarSupportedContent" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                    
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -94,88 +93,77 @@ class Admin
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar " data-sidebarbg="skin6" style="border-right: 1px gray solid; background: rgb(1,0,8);
-        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+        <aside class="left-sidebar " data-sidebarbg="skin6" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav ">
                     <ul id="sidebarnav " >
                         <!-- User Profile-->
-                        <li class="sidebar-item pt-2 " style="border-right: 1px gray solid; background: rgb(1,0,8);
-background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item pt-2 " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php?AdminID='.$id.'"
                                 aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu text-light">Dashboard</span>
+                                <i class="far fa-clock" aria-hidden="true" style="font-size: 20px;"></i>
+                                <span class="hide-menu text-light" style="font-weight: bold;">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="analysis.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-columns" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Analysis</span>
                             </a>
                         </li>
-                        <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="student.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Student</span>
                             </a>
                         </li>
-                        <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="teacher.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Teacher</span>
                             </a>
                         </li>
-                        <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="class.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Class</span>
                             </a>
                         </li>
-                        <li class="sidebar-item" style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="lesson.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Lesson</span>
                             </a>
                         </li>
-                        <li class="sidebar-item" style="border-right: 1px gray solid;background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
                                 aria-expanded="false">
                                 <i class="fa fa-columns" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Exam</span>
                             </a>
                         </li>
-                        <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
+                        <li class="sidebar-item " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="news.php?AdminID='.$id.'"
                                 aria-expanded="false">
                                 <i class="fa fa-columns" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">News</span>
                             </a>
                         </li>
-                        <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
                                 aria-expanded="false">
                                 <i class="fa fa-columns" aria-hidden="true"></i>
                                 <span class="hide-menu text-light">Event</span>
                             </a>
                         </li>
-                        <li class="sidebar-item " style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="sidebar-item " style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.php"
                                 aria-expanded="false">
                                 <i class="fa fa-columns" aria-hidden="true"></i>
@@ -183,8 +171,7 @@ background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(
                             </a>
                         </li>
 
-                        <li class="text-center p-20 upgrade-btn" style="border-right: 1px gray solid; background: rgb(1,0,8);
-                        background: linear-gradient(90deg, rgba(1,0,8,1) 0%, rgba(45,45,48,1) 35%, rgba(8,11,11,0.6195728291316527) 100%);">
+                        <li class="text-center p-20 upgrade-btn" style="background: linear-gradient(to bottom, #29293b 10%, #0e0e0e 100%);">
                             <a href="../../index.php"
                                 class="btn d-grid btn-danger text-white" >
                                 Sing Out</a>
@@ -228,7 +215,7 @@ function fillTeacherTable()
         <td>'.$subject.'</td>
       
         <td>'.$level.'</td>
-        <td><button class="btnUpdate btn btn-warning" id="'.$Tid.'"> <i class="fas fa-edit"></i> </button>
+        <td><button class="btnUpdate btn " id="'.$Tid.'"> <i class="fas fa-edit"></i> </button>
         <a href="../Admin/teacher.php?AdminID='.$adminid.'& Tid='.$Tid.'" class="btnDelete btn text-danger" id="'.$Tid.'"><i class="fas fa-trash-alt"></i></a>
         </td>
       </tr>';
@@ -270,7 +257,7 @@ function getClassTable()
         <td>' . $class . '</td>
         <td>' . $grade . '</td>
         <td>
-            <button class="btnUpdate btn btn-warning" id="' . $classID . '"> <i class="fas fa-edit"></i> </button>
+            <button class="btnUpdate btn " id="' . $classID . '"> <i class="fas fa-edit"></i> </button>
             <a href="./class.php?AdminID='.$adminid.'& classID='.$classID.'" class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
         </td>
       </tr>';

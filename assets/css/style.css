@@ -349,13 +349,13 @@ h6 {
 .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
-  color: #37423b;
+  color: #25168b;
 }
 
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #5fcf80;
+  color: #262cc5;
 }
 
 .navbar-mobile .getstarted,
@@ -390,7 +390,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #5fcf80;
+  color: #0f35a8;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -454,13 +454,13 @@ h6 {
   border-radius: 50px;
   transition: 0.5s;
   margin-top: 30px;
-  border: 2px solid #fff;
+  border: 2px solid #f1efef;
   color: #fff;
 }
 
 #hero .btn-get-started:hover {
-  background: #5fcf80;
-  border: 2px solid #5fcf80;
+  background: #1b3dd5;
+  border: 2px solid #110e9a;
 }
 
 @media (min-width: 1024px) {
@@ -519,7 +519,7 @@ section {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #9ae1af;
+  background: #371896;
   margin: 4px 10px;
 }
 
@@ -536,9 +536,9 @@ section {
 .breadcrumbs {
   margin-top: 73px;
   text-align: center;
-  background: #5fcf80;
+  background: #4717cb;
   padding: 30px 0;
-  color: #fff;
+  color: #561acd;
 }
 
 @media (max-width: 992px) {
@@ -577,12 +577,12 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #5fcf80;
+  color: #5519cd;
 }
 
 .about .content .learn-more-btn {
-  background: #5fcf80;
-  color: #fff;
+  background: #4324de;
+  color: #1f13c4;
   border-radius: 50px;
   padding: 8px 25px 9px 25px;
   white-space: nowrap;
@@ -592,7 +592,7 @@ section {
 }
 
 .about .content .learn-more-btn:hover {
-  background: #3ac162;
+  background: #5831d9;
   color: #fff;
 }
 
@@ -613,7 +613,7 @@ section {
 .counts .counters span {
   font-size: 48px;
   display: block;
-  color: #5fcf80;
+  color: #362dd0;
   font-weight: 700;
 }
 
@@ -631,7 +631,7 @@ section {
 --------------------------------------------------------------*/
 .why-us .content {
   padding: 30px;
-  background: #5fcf80;
+  background: #1129e1;
   border-radius: 4px;
   color: #fff;
 }
@@ -757,7 +757,7 @@ section {
 }
 
 .courses .course-content h3 a:hover {
-  color: #5fcf80;
+  color: #4182dd;
 }
 
 .courses .course-content p {
@@ -767,7 +767,7 @@ section {
 
 .courses .course-content h4 {
   font-size: 14px;
-  background: #5fcf80;
+  background: #1e6fcc;
   padding: 7px 14px;
   color: #fff;
   margin: 0;

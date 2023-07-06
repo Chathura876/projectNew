@@ -210,24 +210,24 @@ $admin=$_GET['AdminID'];
                                 <h3 class="box-title">Lesson - Details</h3>
                              </div>
                              <div class="col-6">
-                                <button class="btn btn-primary" id="Addbtn" style="margin-left: 350px;">Add Lesson</button>
+                                <button class="btn btn-dark" id="Addbtn" style="margin-left: 450px;">Add Lesson</button>
                              </div>
                             </div>
                           
                             <div class="row mt-5">
                              <div class="col-12">
                                 <table class="table">
-                                    <thead class="thead-dark">
+                                <thead class="thead" style="background-color:#efd386;">
                                       <tr>
-                                        <th scope="col">LessonID</th>
-                                        <th scope="col">SubID</th>
-                                        <th scope="col">TeacherID</th>
-                                        <th scope="col">ClassID</th>
-                                        <th scope="col">LessonTitle</th>
-                                        <th scope="col">Description</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">LessonID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">SubID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">TeacherID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">ClassID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">LessonTitle</th>
+                                        <th scope="col" style="width:300px;">Description</th>
                                         
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Option</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Date</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Option</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -258,7 +258,7 @@ $admin=$_GET['AdminID'];
                                 <td>'.$date.'</td>
                           
                                 <td>
-                                    <button class="btn btn-warning upBtn" id="'.$lessonID.'"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                                    <button class="btn  upBtn" id="'.$lessonID.'"><i class="fa fa-edit" aria-hidden="true"></i></button>
                                     <button class="btn text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </td>
                               </tr>';

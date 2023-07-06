@@ -30,7 +30,7 @@ class Teacher
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <h3 class="text-light">New Samadhi</h3>
+                            <h3 class="text-light">Newසමාධි</h3>
                             
                         </span>
                     </a>

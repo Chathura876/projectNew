@@ -198,17 +198,17 @@ $teacherID=$_GET["teacherID"];
                             <div class="row mt-5">
                              <div class="col-12">
                                 <table class="table">
-                                    <thead class="thead-dark">
+                                <thead class="thead" style="background-color:#efd386;">
                                       <tr>
-                                        <th scope="col">LessonID</th>
-                                        <th scope="col">SubID</th>
-                                        <th scope="col">TeacherID</th>
-                                        <th scope="col">ClassID</th>
-                                        <th scope="col">LessonTitle</th>
-                                        <th scope="col">Description</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">LessonID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">SubID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">TeacherID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">ClassID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">LessonTitle</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Description</th>
                                         
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Option</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Date</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Option</th>
                                       </tr>
                                     </thead>
                                     <tbody>

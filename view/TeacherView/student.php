@@ -148,15 +148,15 @@ require_once('../../controller/TeacherPanelControl.php')
                        <div class="white-box mt-5">
                             <div class="table-responsive">
                                 <table class="table table-hover">
-                                    <thead class="thead-dark">
+                                <thead class="thead" style="background-color:#efd386;">
                                       <tr>
-                                        <th scope="col">stdID</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Gender</th>
-                                        <th scope="col">Grade</th>
-                                        <th scope="col">School</th>
-                                        <th scope="col">Option</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">stdID</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Name</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Address</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Gender</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Grade</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">School</th>
+                                        <th scope="col" style="font-weight: bold; color: black;">Option</th>
                                       </tr>
                                     </thead>
                                     <tbody>
