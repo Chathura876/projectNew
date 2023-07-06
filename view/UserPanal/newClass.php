@@ -99,6 +99,7 @@ echo '<!DOCTYPE html>
                        
                         $card=new userPanel();
                         $card->GetNewClass();
+                        
                        
                         echo '    
                 </div>

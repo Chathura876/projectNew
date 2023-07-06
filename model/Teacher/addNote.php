@@ -4,6 +4,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   include '../../php/connect.php';
   $classID=$_POST['classID'];
   $title=$_POST['title'];
+  $teacherID=$_POST['teacherID'];
 
 // Get the file details
 $fileName = $_FILES['img']['name']; // Name of the uploaded file
@@ -39,6 +40,15 @@ if ($fileError === 0) {
   $filePath = "NULL";
 }
 
+
+ $sql="INSERT INTO `note` (`id`, `classID`, `teacherID`, `noteTitle`, `documentPath`, `date`) VALUES (NULL, '$classID', '$teacherID', '$title', '$filePath', current_timestamp());";
+ $result=mysqli_query($con,$sql);
+ if($result)
+ {
+  session_start();
+  header('location:../../view/TeacherView/note.php?teacherID='.$teacherID.'');
+  
+ }
 
 
   

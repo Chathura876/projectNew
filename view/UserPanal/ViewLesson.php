@@ -1,11 +1,10 @@
 <?php
-require_once('../../controller/UserPanelControl.php');
 include '../../php/connect.php';
+require_once('../../controller/UserPanelControl.php');
+$classID=$_GET["classID"];
+?>
 
-  
-
-
-echo '<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 
 <head>
@@ -18,18 +17,13 @@ echo '<!DOCTYPE html>
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>New Samadhi LMS</title>
+    <title>Ample Admin Lite Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
     <!-- Custom CSS -->
    <link href="css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn\'t work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -49,64 +43,71 @@ echo '<!DOCTYPE html>
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->';
-        $sideBar = new userPanel();
+        <!-- ============================================================== -->
+     
+            <?php
+            
+            $sideBar = new userPanel();
         $sideBar->getUserSideBar();
-       
-           echo ' 
-           
-           <div class="page-breadcrumb bg-white">
+            ?>
+
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">My Classes</h4>
+                        <h4 class="page-title">Your Lesson</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
+                            <a href="../../index.php" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Sing Out</a>
                         </div>
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-           <!-- ============================================================== -->
+            <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="white-box">
-                            <h3 class="box-title">My Classes</h3>
-                            <p class="text-muted"> you are already join Classes..</p>
-                            
-                        </div>
-                    </div>';
+
+        <!-- ===============================start lesson card============================         -->
+              <div class="row">
+                <?php
+                 $sql="select * from lesson where classID='$classID'";
+                 $result=mysqli_query($con,$sql);
+                 while($row=mysqli_fetch_assoc($result))
+                 {
                    
-                    $myClass=new userPanel();
-                    $myClass->getMyClass();
-                  
-                     echo' </div>
-                      </div>
+                    $LessonTitle=$row['LessonTitle'];
+                    $description=$row['description'];
+                    $video=$row['video'];
+
+
+                    echo'
+                    <div class="col-4">
+                        <div class="card" style="width: 300px;">
+                            <video src="../../assets/video/'.$video.'" class="card-img-top" controls></video>
+                            <div class="card-body">
+                              <h5 class="card-title">'.$LessonTitle.'</h5>
+                              <p class="card-text">'.$description.'</p>
+                            </div>
+                          </div>
+                    </div>';
+                 }
                 
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
+
+               
+                ?>
+              </div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -131,6 +132,8 @@ echo '<!DOCTYPE html>
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -144,5 +147,3 @@ echo '<!DOCTYPE html>
 </body>
 
 </html>
-';
-?>

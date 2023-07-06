@@ -95,10 +95,10 @@ echo '<!DOCTYPE html>
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-12">
                         <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="../../'.$img.'" >
+                            <div class="user-bg"> <img width="100%" alt="user" src="../../uploadImage/'.$img.'" >
                                 <div class="overlay-box">
                                     <div class="user-content">
-                                        <a href="javascript:void(0)"><img src="../../'.$img.'" 
+                                        <a href="javascript:void(0)"><img src="../../uploadImage/'.$img.'" 
                                                 class="thumb-lg img-circle" alt="img"></a>
                                         <h4 class="text-white mt-2">'.$fullName.'</h4>
                                         <h5 class="text-white mt-2">'.$school.'</h5>

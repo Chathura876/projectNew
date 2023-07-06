@@ -21,13 +21,13 @@ class userPanel
             $img      = $row['image'];
             $a="'../../.$img.'";
         }
-        echo '  <header class="topbar" data-navbarbg="skin5">
+        echo '  <header class="topbar" data-navbar bg-danger>
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.php?stdID='.$id.'">
+                    <a class="navbar-brand" href="dashboard.php?stdID='.$id.'" style="background: linear-gradient(to top, #003399 18%, #003300 84%);">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -36,7 +36,7 @@ class userPanel
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <h3 class="text-dark">New Samadhi</h3>
+                            <h3 class="text-light">New Samadhi</h3>
                             
                         </span>
                     </a>
@@ -52,7 +52,7 @@ class userPanel
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="background: linear-gradient(to top, #003399 18%, #003300 84%);">
                    
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -98,7 +98,7 @@ class userPanel
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
+        <aside class="left-sidebar" style="background: linear-gradient(to top, #003399 18%, #003300 84%);">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
@@ -205,7 +205,7 @@ function GetNewClass()
         
         <div class="col-md-4">
         <div class="card mt-3" style="width: 18rem;">
-        <img class="card-img-top" src="../assets/img/class/img_649bd976407043.43860741.jpg" alt="Card image cap" style="width: 300px; height: 300px;">
+        <img class="card-img-top" src="../../assets/img/class/'.$image.'" alt="Card image cap" style="width: 300px; height: 300px;">
         <div class="card-body">
           <h3 class="card-title">' . $className . '</h3>
           <p class="card-text">' . $des . '</p>
@@ -307,6 +307,7 @@ function getMyClass()
     $className=$row['className'];
     $image=$row['image'];
     $des=$row['description'];
+    $classID=$row['classID'];
 
     echo ' <div class="col-md-4 col-sm-12 mt-3">
     <div class="card" style="width: 18rem;">
@@ -316,7 +317,7 @@ function getMyClass()
         <div class="card-body">
           <h5 class="card-title">'.$className.'</h5>
           <p class="card-text">'.$des.'</p>
-          <a href="#" class="btn btn-success">Launch Now </a>
+          <a href="./ViewLesson.php?stdID='.$stdID.'& classID='.$classID.'" class="btn btn-success" target="_blank" >Launch Now </a>
         </div>
       </div>
    </div>';
@@ -324,7 +325,6 @@ function getMyClass()
 }
 
 // =================================End==================================================
-
 
 
 function studentTeacher()

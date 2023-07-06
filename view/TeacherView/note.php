@@ -87,7 +87,10 @@ $teacherID=$_GET["teacherID"];
       </div>
       <div class="modal-body">
       <form action="../../model/Teacher/addNote.php" method="POST" enctype="multipart/form-data">
-        
+        <?php
+        echo '
+        <input type="text" value="'.$teacherID.'" name="teacherID" class="d-none">';
+        ?>
         <div class="form-group">
             <label for="exampleInputEmail1">Class ID</label>
             <input type="text" class="form-control" placeholder="Class ID" name="classID">
